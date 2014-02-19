@@ -9,17 +9,21 @@ describe "MatchPages" do
 
   	it { should have_content('New match') }
   	it { should have_title(full_title('New match')) }
-  end
 
-  describe "signup page" do
-
-    before { visit newmatch_path }
+  	before { visit newmatch_path }
 
     let(:submit) { "Submit match" }
 
     describe "with invalid information" do
       it "should not create a match" do
         expect { click_button submit }.not_to change(Match, :count)
+      end
+
+      describe 'after submission' do
+      	before { click_button submit }
+
+      	it { should have_title("New match") }
+      	it { should have_content("error") }
       end
     end
 
@@ -71,20 +75,17 @@ describe "MatchPages" do
 				fill_in "Cycles per match", with: 1
       end
 
-      it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
+      it "should create a new match" do
+        expect { click_button submit }.to change(Match, :count).by(1)
+      end
+
+      describe 'after saving the match' do
+      	before { click_button submit }
+      	let(:match) { Match.find_by(id: '1') }
+
+      	it { should have_title(match.id) }
+      	it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
     end
   end
-
-=begin
-  describe 'match show page' do
-  	let(:match) { FactoryGirl.create(:match) }
-  	before { visit match_path(match) }
-
-  	it { should have_content(match.team_number) }
-  	it { should have_title(match.id) }
-  end
-=end
-
 end

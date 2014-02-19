@@ -1,2 +1,24 @@
 <% provide(:title, 'New match') %>
 <h1>New match</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@match) do |f| %>
+      <%= render 'shared/error_messages_match' %>
+
+      <%= f.label :top_made_tele, "Top scored" %>
+      <%= f.text_field :top_made_tele %>
+
+      <%= f.label :top_missed_tele, "Top missed" %>
+      <%= f.text_field :top_missed_tele %>
+
+      <%= f.label :low_made_tele, "Low scored" %>
+      <%= f.text_field :low_made_tele %>
+
+      <%= f.label :low_goal_time_taken, "Low time taken" %>
+      <%= f.text_field :low_goal_time_taken %>
+
+      <%= f.submit "Submit match", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

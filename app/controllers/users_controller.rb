@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       sign_in @user
-  		flash[:success] = 'Welcome to the Sample App!'
+  		flash[:success] = 'Welcome to 3501 scouting!'
   		redirect_to @user
   	else
   		render 'new'
@@ -50,8 +50,6 @@ class UsersController < ApplicationController
   		params.require(:user).permit( :name, :email, :password,
                                     :password_confirmation)
   	end
-
-    # before filters
 
     def signed_in_user
       unless signed_in?
