@@ -1,24 +1,66 @@
 <% provide(:title, 'New match') %>
-<h1>New match</h1>
+<html ng-app>
+	<head>
+		<style>
+			input {width: 25%;}
+			.med_width {width: 36%;}
+			.display_inline {display: inline;}
+		</style>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@match) do |f| %>
-      <%= render 'shared/error_messages_match' %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <%= f.label :top_made_tele, "Top scored" %>
-      <%= f.text_field :top_made_tele %>
+		<script>
+		function Ctrl($scope) {
+			$scope.hot_auton = true;
+			$scope.drive_auton = true;
+			$scope.time_to_shoot_auton = 0;
+		}
+		</script>
+	</head>
+	<body>
+		<h1>New match</h1>
+		<%= form_for(@match, html: {'ng-controller' => 'Ctrl'}) do |f| %>
+			<%= render 'shared/error_messages_match' %>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h3>Auton</h3>
+						<div ng-init="hot_auton=false;drive_auton=false;time_to_shoot_auton=0;top_made_auton=0;top_missed_auton=0;low_made_auton=0;low_missed_auton=0">
+							<label for="hot_auton"><b>Hot detection:</b></label> <input type="checkbox" ng-model="hot_auton" name='match[hot_auton]' id='match_hot_auton'>
+							<br/>
+							<tt>hot = {{hot_auton}}</tt><br/>
+							<label for="drive_auton"><b>Mobility:</b></label> <input type="checkbox" ng-model="drive_auton" name='match[drive_auton]' id='match_drive_auton'>
+							<br/>
+							<tt>driving = {{drive_auton}}</tt><br/>
+							<label for="time_to_shoot_auton"><b>Time to shoot (seconds)</b></label>
+							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="1"> 1
+							<br/>
+							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="3"> 3
+							<br/>
+							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="5"> 5
+							<br/>
+							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="7"> 7
+							<br/>
+							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="9"> 9
+							<br/>
+							<tt>time to shoot = {{time_to_shoot_auton}}</tt><br/>
+							<label for="top_made_auton"><b>Top scored:</b></label> <input type="radio" ng-model="top_made_auton" name='match[top_made_auton]' id='match_top_made_auton' value="">
+							<br/>
+							<label for="top_missed_auton"><b>Top missed:</b></label> <input type="number" ng-model="top_missed_auton" name='match[top_missed_auton]' id='match_top_missed_auton'>
+							<br/>
+							<label for="low_made_auton"><b>Low scored:</b></label> <input type="number" ng-model="low_made_auton" name='match[low_made_auton]' id='match_low_made_auton'>
+							<br/>
+							<label for="low_missed_auton"><b>Low missed:</b></label> <input type="number" ng-model="low_missed_auton" name='match[low_missed_auton]' id='match_low_missed_auton'>
+						</div>
+					</div>
 
-      <%= f.label :top_missed_tele, "Top missed" %>
-      <%= f.text_field :top_missed_tele %>
+					<div class="col-md-4">
+						<h3>Movement</h3>
+					</div>
+				</div>
+			</div>
 
-      <%= f.label :low_made_tele, "Low scored" %>
-      <%= f.text_field :low_made_tele %>
-
-      <%= f.label :low_goal_time_taken, "Low time taken" %>
-      <%= f.text_field :low_goal_time_taken %>
-
-      <%= f.submit "Submit match", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+			<%= f.submit "Submit match", class: "btn btn-primary" %>
+		<% end %>
+	</body>
+</html>
