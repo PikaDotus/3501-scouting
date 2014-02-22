@@ -1,68 +1,56 @@
 <% provide(:title, 'New match') %>
-<html ng-app>
-	<head>
-		<style>
-			input {width: 25%;}
-			.med_width {width: 36%;}
-			.display_inline {display: inline;}
-		</style>
+<style>
+	input {width: 75%;}
+	label {display: inline;}
+	.slide {width: 75% !important;}
+</style>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script>
-		function Ctrl($scope) {
-			$scope.hot_auton = true;
-			$scope.drive_auton = true;
-			$scope.time_to_shoot_auton = 0;
-			$scope.top_made_auton = 0;
-			$scope.top_missed_auton = 0;
-		}
-		</script>
-	</head>
-	<body>
-		<h1>New match</h1>
-		<%= form_for(@match, html: {'ng-controller' => 'Ctrl'}) do |f| %>
-			<%= render 'shared/error_messages_match' %>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<h3>Auton</h3>
-						<div ng-init="hot_auton=false;drive_auton=false;time_to_shoot_auton=0;top_made_auton=0;top_missed_auton=0;low_made_auton=0;low_missed_auton=0">
-							<label for="match_hot_auton"><b>Hot detection:</b></label> <input type="checkbox" ng-model="hot_auton" name='match[hot_auton]' id='match_hot_auton'>
-							<br/>
-							<tt>hot = {{hot_auton}}</tt><br/>
-							<label for="match_drive_auton"><b>Mobility:</b></label> <input type="checkbox" ng-model="drive_auton" name='match[drive_auton]' id='match_drive_auton'>
-							<br/>
-							<tt>driving = {{drive_auton}}</tt><br/>
-							<label for="match_time_to_shoot_auton"><b>Time to shoot (seconds)</b></label>
-							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="1"> 1
-							<br/>
-							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="3"> 3
-							<br/>
-							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="5"> 5
-							<br/>
-							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="7"> 7
-							<br/>
-							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="9"> 9
-							<br/>
-							<tt>time to shoot = {{time_to_shoot_auton}}</tt><br/>
-							<label for="match_top_made_auton"><b>Top scored:</b></label> <input type="radio" ng-model="top_made_auton" name='match[top_made_auton]' id='match_top_made_auton' value="">
-							<br/>
-							<label for="match_top_missed_auton"><b>Top missed:</b></label> <input type="number" ng-model="top_missed_auton" name='match[top_missed_auton]' id='match_top_missed_auton'>
-							<br/>
-							<label for="match_low_made_auton"><b>Low scored:</b></label> <input type="number" ng-model="low_made_auton" name='match[low_made_auton]' id='match_low_made_auton'>
-							<br/>
-							<label for="match_low_missed_auton"><b>Low missed:</b></label> <input type="number" ng-model="low_missed_auton" name='match[low_missed_auton]' id='match_low_missed_auton'>
-						</div>
-					</div>
+<h1>New match</h1>
+<div class="container">
 
-					<div class="col-md-4">
-						<h3>Movement</h3>
-					</div>
-				</div>
+  <%= form_for(@match, html: {'ng-controller' => 'Ctrl'}) do |f| %>
+    <%= render 'shared/error_messages_match' %>
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Auton</h3>
+
+		      <%= f.label :top_made_tele, "Top scored" %>
+		      <%= f.radio_button :top_made_tele, 1 %>
+		      <%= f.radio_button :top_made_tele, 4 %>
+		      <%= f.radio_button :top_made_tele, 9 %>
+					<br>
+		      <%= f.label :top_missed_tele, "Top missed" %>
+		      <%= f.range_field :top_missed_tele, min: 0, max: 5, class: 'slide' %>
+					<br>
+		      <%= f.label :low_made_tele, "Low scored" %>
+		      <%= f.check_box :low_made_tele %>
+					<br>
+		      <%= f.label :low_goal_time_taken, "Low time taken" %>
+		      <%= f.number_field :low_goal_time_taken, step: 1, min: 0, max: 10 %>
 			</div>
 
-			<%= f.submit "Submit match", class: "btn btn-primary" %>
-		<% end %>
-	</body>
-</html>
+			<div class="col-md-4">
+				<h3>Movement</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Teleop scoring (shots)</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Teleop scoring (other)</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Teleop interaction</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Misc</h3>
+			</div>
+		</div>
+
+		<br>
+    <%= f.submit "Submit match", class: "btn btn-primary" %>
+  <% end %>
+</div>
