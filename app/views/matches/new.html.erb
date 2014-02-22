@@ -28,13 +28,13 @@
 					<div class="col-md-4">
 						<h3>Auton</h3>
 						<div ng-init="hot_auton=false;drive_auton=false;time_to_shoot_auton=0;top_made_auton=0;top_missed_auton=0;low_made_auton=0;low_missed_auton=0">
-							<label for="hot_auton"><b>Hot detection:</b></label> <input type="checkbox" ng-model="hot_auton" name='match[hot_auton]' id='match_hot_auton'>
+							<label for="match_hot_auton"><b>Hot detection:</b></label> <input type="checkbox" ng-model="hot_auton" name='match[hot_auton]' id='match_hot_auton'>
 							<br/>
 							<tt>hot = {{hot_auton}}</tt><br/>
-							<label for="drive_auton"><b>Mobility:</b></label> <input type="checkbox" ng-model="drive_auton" name='match[drive_auton]' id='match_drive_auton'>
+							<label for="match_drive_auton"><b>Mobility:</b></label> <input type="checkbox" ng-model="drive_auton" name='match[drive_auton]' id='match_drive_auton'>
 							<br/>
 							<tt>driving = {{drive_auton}}</tt><br/>
-							<label for="time_to_shoot_auton"><b>Time to shoot (seconds)</b></label>
+							<label for="match_time_to_shoot_auton"><b>Time to shoot (seconds)</b></label>
 							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="1"> 1
 							<br/>
 							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="3"> 3
@@ -46,13 +46,13 @@
 							<input type="radio" ng-model="time_to_shoot_auton" name='match[time_to_shoot_auton]' id='match_time_to_shoot_auton' value="9"> 9
 							<br/>
 							<tt>time to shoot = {{time_to_shoot_auton}}</tt><br/>
-							<label for="top_made_auton"><b>Top scored:</b></label> <input type="radio" ng-model="top_made_auton" name='match[top_made_auton]' id='match_top_made_auton' value="">
+							<label for="match_top_made_auton"><b>Top scored:</b></label> <input type="radio" ng-model="top_made_auton" name='match[top_made_auton]' id='match_top_made_auton' value="">
 							<br/>
-							<label for="top_missed_auton"><b>Top missed:</b></label> <input type="number" ng-model="top_missed_auton" name='match[top_missed_auton]' id='match_top_missed_auton'>
+							<label for="match_top_missed_auton"><b>Top missed:</b></label> <input type="number" ng-model="top_missed_auton" name='match[top_missed_auton]' id='match_top_missed_auton'>
 							<br/>
-							<label for="low_made_auton"><b>Low scored:</b></label> <input type="number" ng-model="low_made_auton" name='match[low_made_auton]' id='match_low_made_auton'>
+							<label for="match_low_made_auton"><b>Low scored:</b></label> <input type="number" ng-model="low_made_auton" name='match[low_made_auton]' id='match_low_made_auton'>
 							<br/>
-							<label for="low_missed_auton"><b>Low missed:</b></label> <input type="number" ng-model="low_missed_auton" name='match[low_missed_auton]' id='match_low_missed_auton'>
+							<label for="match_low_missed_auton"><b>Low missed:</b></label> <input type="number" ng-model="low_missed_auton" name='match[low_missed_auton]' id='match_low_missed_auton'>
 						</div>
 					</div>
 
