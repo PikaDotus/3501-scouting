@@ -1,52 +1,266 @@
 <% provide(:title, 'New match') %>
 <style>
 	input {width: 75%;}
-	label {display: inline;}
-	.slide {width: 75% !important;}
+	label {display: inline; font-weight: bold;}
+	label.radio-label {display: block !important;}
+	input.slide {width: 100% !important;}
+	.no-bold {font-weight: normal !important;}
+	div.table {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+	}
+	div.table span {
+		display: table-cell;
+		text-align: center;
+		border: 1px dashed lightgray;
+	}
 </style>
 
 
 <h1>New match</h1>
 <div class="container">
 
-  <%= form_for(@match, html: {'ng-controller' => 'Ctrl'}) do |f| %>
+  <%= form_for(@match) do |f| %>
     <%= render 'shared/error_messages_match' %>
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Auton</h3>
 
-		      <%= f.label :top_made_tele, "Top scored" %>
-		      <%= f.radio_button :top_made_tele, 1 %>
-		      <%= f.radio_button :top_made_tele, 4 %>
-		      <%= f.radio_button :top_made_tele, 9 %>
-					<br>
-		      <%= f.label :top_missed_tele, "Top missed" %>
-		      <%= f.range_field :top_missed_tele, min: 0, max: 5, class: 'slide' %>
-					<br>
-		      <%= f.label :low_made_tele, "Low scored" %>
-		      <%= f.check_box :low_made_tele %>
-					<br>
-		      <%= f.label :low_goal_time_taken, "Low time taken" %>
-		      <%= f.number_field :low_goal_time_taken, step: 1, min: 0, max: 10 %>
+				<%= f.label :hot_auton, "Scored in hot goal" %>
+				<%= f.check_box :hot_auton %>
+				<br>
+				<%= f.label :drive_auton, "Drive points" %>
+				<%= f.check_box :drive_auton %>
+				<br>
+				<%= f.label :top_made_auton, "Top scored" %>
+				<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3 %>
+				<br>
+				<%= f.label :top_missed_auton, "Top missed" %>
+				<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3 %>
+				<br>
+				<%= f.label :low_made_auton, "Low scored" %>
+				<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3 %>
+				<br>
+				<%= f.label :low_missed_auton, "Low missed" %>
+				<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3 %>
 			</div>
 
 			<div class="col-md-4">
 				<h3>Movement</h3>
+
+				<%= f.label :speed, "Speed" %>
+				<br>
+				<%= f.radio_button :speed, 'very slow', value: 1 %>
+				<%= f.label :speed_very_slow, "very slow", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :speed, 'slow', value: 2 %>
+				<%= f.label :speed_slow, 'slow', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :speed, 'decent', value: 3 %>
+				<%= f.label :speed_decent, 'decent', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :speed, 'fast', value: 4 %>
+				<%= f.label :speed_fast, 'fast', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :speed, 'very fast', value: 5 %>
+				<%= f.label :speed_very_fast, 'very fast', class: 'no-bold' %>
+				<br>
+
+				<%= f.label :driver_skill, "Driver skill" %>
+				<br>
+				<%= f.radio_button :driver_skill, 'poor', value: 1 %>
+				<%= f.label :driver_skill_poor, "poor", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :driver_skill, 'okay', value: 2 %>
+				<%= f.label :driver_skill_okay, 'okay', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :driver_skill, 'decent', value: 3 %>
+				<%= f.label :driver_skill_decent, 'decent', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :driver_skill, 'good', value: 4 %>
+				<%= f.label :driver_skill_good, 'good', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :driver_skill, 'great', value: 5 %>
+				<%= f.label :driver_skill_great, 'great', class: 'no-bold' %>
+				<br>
+
+				<%= f.label :no_show, "No show" %>
+				<%= f.check_box :no_show %>
+				<br>
+				<%= f.label :dead, "Dead" %>
+				<%= f.check_box :dead %>
 			</div>
 			<div class="col-md-4">
 				<h3>Teleop scoring (shots)</h3>
+
+				<%= f.label :top_made_tele, "Top scored" %>
+				<%= f.number_field :top_made_tele, step: 1, min: 0, max: 30 %>
+				<br>
+				<%= f.label :top_missed_tele, "Top missed" %>
+				<%= f.number_field :top_missed_tele, step: 1, min: 0, max: 30 %>
+				<br>
+				<%= f.label :low_made_tele, "Low scored" %>
+				<%= f.number_field :low_made_tele, step: 1, min: 0, max: 30 %>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Teleop scoring (other)</h3>
+
+				<%= f.label :catch_made, "Catches made" %>
+				<%= f.number_field :catch_made, step: 1, min: 0, max: 30 %>
+				<br>
+				<%= f.label :catch_missed, "Catches missed" %>
+				<%= f.number_field :catch_missed, step: 1, min: 0, max: 30 %>
+				<br>
+				<%= f.label :truss_made, "Truss shots made" %>
+				<%= f.number_field :truss_made, step: 1, min: 0, max: 30 %>
+				<br>
+				<%= f.label :truss_missed, "Truss shots missed" %>
+				<%= f.number_field :truss_missed, step: 1, min: 0, max: 30 %>
 			</div>
 			<div class="col-md-4">
 				<h3>Teleop interaction</h3>
+
+				<%= f.label :static_pickup, "Static pickup speed" %>
+				<br>
+				<%= f.radio_button :static_pickup, 'very slow', value: 1 %>
+				<%= f.label :static_pickup_very_slow, "very slow", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :static_pickup, 'slow', value: 2 %>
+				<%= f.label :static_pickup_slow, 'slow', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :static_pickup, 'decent', value: 3 %>
+				<%= f.label :static_pickup_decent, 'decent', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :static_pickup, 'fast', value: 4 %>
+				<%= f.label :static_pickup_fast, 'fast', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :static_pickup, 'very fast', value: 5 %>
+				<%= f.label :static_pickup_very_fast, 'very fast', class: 'no-bold' %>
+				<br>
+
+				<%= f.label :moving_pickup, "Moving pickup speed" %>
+				<br>
+				<%= f.radio_button :moving_pickup, 'very slow', value: 1 %>
+				<%= f.label :moving_pickup_very_slow, "very slow", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :moving_pickup, 'slow', value: 2 %>
+				<%= f.label :moving_pickup_slow, 'slow', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :moving_pickup, 'decent', value: 3 %>
+				<%= f.label :moving_pickup_decent, 'decent', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :moving_pickup, 'fast', value: 4 %>
+				<%= f.label :moving_pickup_fast, 'fast', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :moving_pickup, 'very fast', value: 5 %>
+				<%= f.label :moving_pickup_very_fast, 'very fast', class: 'no-bold' %>
+				<br>
+
+				<%= f.label :attempted_passes, "Passes attempted" %>
+				<%= f.number_field :truss_missed, step: 1, min: 0, max: 50 %>
+				<br>
+				<%= f.label :accurate_passes, "Accurate passes" %>
+				<%= f.number_field :truss_missed, step: 1, min: 0, max: 50 %>
+				<br>
+				<%= f.label :attempted_receptions, "Receptions attempted" %>
+				<%= f.number_field :truss_missed, step: 1, min: 0, max: 50 %>
+				<br>
+				<%= f.label :good_receptions, "Good receptions" %>
+				<%= f.number_field :truss_missed, step: 1, min: 0, max: 50 %>
 			</div>
 			<div class="col-md-4">
-				<h3>Misc</h3>
+				<h3>Defense</h3>
+
+				<%= f.label :goalie_blocked, "Shots blocked – goalie" %>
+				<%= f.number_field :goalie_blocked, step: 1, min: 0, max: 100 %>
+				<br>
+				<%= f.label :goalie_failed, "Shots allowed – goalie" %>
+				<%= f.number_field :goalie_failed, step: 1, min: 0, max: 100 %>
+				<br>
+
+				<%= f.label :goalie_block_area, "Goal blocked by goalie" %>
+				<br>
+				<%= f.radio_button :goalie_block_area, 'low goal', value: 1 %>
+				<%= f.label :goalie_block_area_low_goal, "low goal", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :goalie_block_area, 'high goal', value: 2 %>
+				<%= f.label :goalie_block_area_high_goal, 'high goal', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :goalie_block_area, 'both goals', value: 3 %>
+				<%= f.label :goalie_block_area_both_goals, 'both goals', class: 'no-bold' %>
+				<br>
+
+				<%= f.label :pure_defense, "Pure defense" %>
+				<%= f.check_box :pure_defense %>
+				<br>
+				<%= f.label :def_passes_interrupted, "Passes interrupted" %>
+				<%= f.number_field :def_passes_interrupted, step: 1, min: 0, max: 100 %>
+				<br>
+
+				<%= f.label :def_time_drain, "Time drain caused" %>
+				<br>
+				<%= f.radio_button :def_time_drain, '1 sec', value: 1 %>
+				<%= f.label :def_time_drain_1_sec, "1 sec", class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :def_time_drain, '5 secs', value: 2 %>
+				<%= f.label :def_time_drain_5_secs, '5 secs', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :def_time_drain, '10 secs', value: 3 %>
+				<%= f.label :def_time_drain_10_secs, '10 secs', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :def_time_drain, '15 secs', value: 4 %>
+				<%= f.label :def_time_drain_15_secs, '15 secs', class: 'no-bold' %>
+				<br>
+				<%= f.radio_button :def_time_drain, '20 secs+', value: 5 %>
+				<%= f.label :def_time_drain_20_secs, '20 secs+', class: 'no-bold' %>
+				<br>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Misc attributes</h3>
+
+				<%= f.label :human_player_skill, "Human player skill" %>
+				<br>
+				<%= f.label :top_missed_tele, "swegger" %>
+				<br>
+				<%= f.label :top_missed_tele, "Top missed" %>
+				<br>
+				<%= f.label :top_missed_tele, "Top missed" %>
+				<br>
+				<%= f.label :top_missed_tele, "Top missed" %>
+			</div>
+			<div class="col-md-4">
+				<h3>Test</h3>
+				<%= f.label :top_made_tele, "Top scored" %>
+	      <%= f.radio_button :top_made_tele, 1 %>
+	      <%= f.radio_button :top_made_tele, 4 %>
+	      <%= f.radio_button :top_made_tele, 9 %>
+				<br>
+	      <%= f.label :top_missed_tele, "Top missed", class: 'radio-label' %>
+	      <div class="table">
+	      	<span>0</span>
+	      	<span>1</span>
+	      	<span>2</span>
+	      	<span>3</span>
+	      	<span>4</span>
+	      	<span>5</span>
+	      </div>
+	      <%= f.range_field :top_missed_tele, min: 0, max: 5, class: 'slide' %>
+				<br>
+	      <%= f.label :low_made_tele, "Low scored" %>
+	      <%= f.check_box :low_made_tele %>
+				<br>
+	      <%= f.label :low_goal_time_taken, "Low time taken" %>
+	      <%= f.number_field :low_goal_time_taken, step: 1, min: 0, max: 10 %>
+			</div>
+			<div class="col-md-4">
+				<h3>Notes</h3>
 			</div>
 		</div>
 

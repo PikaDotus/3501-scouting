@@ -33,7 +33,7 @@ describe "MatchPages" do
 				fill_in "Top missed", with: 1
 				fill_in "Low scored", with: 1
 				fill_in "Low time taken", with: 1
-				fill_in "Hot detection", with: true #auton
+				fill_in "Scored in hot goal", with: true #auton
 				fill_in "Drive points", with: 1
 				fill_in "Time to shoot", with: 1
 				fill_in "Top scored", with: 1
