@@ -1,16 +1,18 @@
 <% provide(:title, 'New match') %>
 <style>
 	input {width: 25%;}
-	input[type="radio"] {
-		margin: 1px 10px 0;
-	}
-	input[type='checkbox'] {
-		margin: -2px 10px 0;
-	}
+	input[type="radio"] {margin: 1px 10px 0;}
+	input[type='checkbox'] {margin: -2px 10px 0;}
+
+	label.separate {margin: 0px 10px 0px;}
+	input.separate {margin: 10px 0px 10px;}
+
 	label {display: inline; font-weight: bold;}
 	label.radio-label {display: block !important;}
+
 	input.slide {width: 100% !important;}
 	.no-bold {font-weight: normal !important;}
+
 	div.table {
 		display: table;
 		width: 100%;
@@ -19,15 +21,51 @@
 	div.table span {
 		display: table-cell;
 		text-align: center;
-		border: 1px dashed lightgray;
+		border: 1px solid lightgray;
+		border-left-width: 0;
 	}
+	div.table span.left {border-left-width: 1px;}
+	div.table span.red {border-color: red;}
+	div.table span.blue {border-color: blue;}
 </style>
-
 
 <h1>New match</h1>
 <div class="container">
 
   <%= form_for(@match) do |f| %>
+  	<div class="row center">
+  		<%= f.label :team_number, class: 'separate' %>
+  		<%= f.number_field :team_number, step: 1, min: 1, max: 6000, class: 'separate' %>
+  		<br><br>
+			<div class="row">
+				<div class="col-md-4">
+					<%= f.label :red_1, class: 'separate' %>
+  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+				<div class="col-md-4">
+					<%= f.label :red_1, class: 'separate' %>
+  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+				<div class="col-md-4">
+					<%= f.label :red_1, class: 'separate' %>
+  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<%= f.label :blue_1, class: 'separate' %>
+  				<%= f.number_field :blue_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+				<div class="col-md-4">
+					<%= f.label :blue_2, class: 'separate' %>
+  				<%= f.number_field :blue_2, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+				<div class="col-md-4">
+					<%= f.label :blue_3, class: 'separate' %>
+  				<%= f.number_field :blue_3, step: 1, min: 1, max: 6000, class: 'separate' %>
+				</div>
+			</div>
+  	</div>
     <%= render 'shared/error_messages_match' %>
 		<div class="row">
 			<div class="col-md-4">
@@ -231,39 +269,19 @@
 			<div class="col-md-4">
 				<h3>Misc attributes</h3>
 
-				<%= f.label :human_player_skill, "Human player skill" %>
-				<br>
-				<%= f.label :top_missed_tele, "swegger" %>
-				<br>
-				<%= f.label :top_missed_tele, "Top missed" %>
-				<br>
-				<%= f.label :top_missed_tele, "Top missed" %>
-				<br>
-				<%= f.label :top_missed_tele, "Top missed" %>
+				<%= f.label :human_player_skill, "Human player skill", class: 'radio-label' %>
+				<div class="table">
+					<span class='left'>0</span>
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+				</div>
+				<%= f.range_field :human_player_skill, min: 0, max: 5, class: 'slide' %>
 			</div>
 			<div class="col-md-4">
 				<h3>Test</h3>
-				<%= f.label :top_made_tele, "Top scored" %>
-	      <%= f.radio_button :top_made_tele, 1 %>
-	      <%= f.radio_button :top_made_tele, 4 %>
-	      <%= f.radio_button :top_made_tele, 9 %>
-				<br>
-	      <%= f.label :top_missed_tele, "Top missed", class: 'radio-label' %>
-	      <div class="table">
-	      	<span>0</span>
-	      	<span>1</span>
-	      	<span>2</span>
-	      	<span>3</span>
-	      	<span>4</span>
-	      	<span>5</span>
-	      </div>
-	      <%= f.range_field :top_missed_tele, min: 0, max: 5, class: 'slide' %>
-				<br>
-	      <%= f.label :low_made_tele, "Low scored" %>
-	      <%= f.check_box :low_made_tele %>
-				<br>
-	      <%= f.label :low_goal_time_taken, "Low time taken" %>
-	      <%= f.number_field :low_goal_time_taken, step: 1, min: 0, max: 10 %>
 			</div>
 			<div class="col-md-4">
 				<h3>Notes</h3>
@@ -271,6 +289,8 @@
 		</div>
 
 		<br>
-    <%= f.submit "Submit match", class: "btn btn-primary" %>
+		<div class="center">
+    	<%= f.submit "Submit match", class: "btn btn-large" %>
+    </div>
   <% end %>
 </div>

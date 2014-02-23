@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124004302) do
+ActiveRecord::Schema.define(version: 20140223192359) do
 
   create_table "matches", force: true do |t|
     t.integer  "team_number"
@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(version: 20140124004302) do
     t.integer  "top_made_tele"
     t.integer  "top_missed_tele"
     t.integer  "low_made_tele"
-    t.integer  "low_goal_time_taken"
     t.boolean  "hot_auton"
     t.boolean  "drive_auton"
-    t.integer  "time_to_shoot_auton"
     t.integer  "top_made_auton"
     t.integer  "top_missed_auton"
     t.integer  "low_made_auton"
@@ -38,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140124004302) do
     t.integer  "catch_missed"
     t.integer  "truss_made"
     t.integer  "truss_missed"
-    t.integer  "assists"
     t.integer  "static_pickup"
     t.integer  "moving_pickup"
     t.integer  "attempted_passes"
@@ -51,7 +48,6 @@ ActiveRecord::Schema.define(version: 20140124004302) do
     t.integer  "human_player_skill"
     t.integer  "goalie_blocked"
     t.integer  "goalie_failed"
-    t.integer  "goalie_pathing"
     t.integer  "goalie_block_area"
     t.integer  "cims"
     t.boolean  "pure_defense"
@@ -60,29 +56,25 @@ ActiveRecord::Schema.define(version: 20140124004302) do
     t.integer  "speed"
     t.integer  "driver_skill"
     t.integer  "drive_train_type"
-    t.integer  "primary_zone"
     t.integer  "team_compromise"
     t.integer  "team_follow"
     t.integer  "team_cooperate"
     t.integer  "when_not_offense"
     t.boolean  "no_show"
     t.boolean  "dead"
-    t.integer  "seconds_cycle"
-    t.integer  "assists_cycle"
-    t.integer  "cycles_match"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: true do |t|
-    t.integer  "team_number"
-    t.integer  "score"
     t.string   "content"
+    t.integer  "votes"
+    t.integer  "match_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["team_number"], name: "index_notes_on_team_number"
+  add_index "notes", ["match_id", "votes"], name: "index_notes_on_match_id_and_votes"
 
   create_table "users", force: true do |t|
     t.string   "name"
