@@ -9,6 +9,7 @@
 
 	label {display: inline; font-weight: bold;}
 	label.radio-label {display: block !important;}
+	label.large-label {font-size: 150%;}
 
 	input.slide {width: 100% !important;}
 	.no-bold {font-weight: normal !important;}
@@ -34,9 +35,9 @@
 
   <%= form_for(@match) do |f| %>
   	<div class="row center">
-  		<%= f.label :team_number, class: 'separate' %>
+  		<%= f.label :team_number, class: 'separate large-label' %>
   		<%= f.number_field :team_number, step: 1, min: 1, max: 6000, class: 'separate' %>
-  		<br><br>
+  		<br><hr><br>
 			<div class="row">
 				<div class="col-md-4">
 					<%= f.label :red_1, class: 'separate' %>
@@ -67,6 +68,7 @@
 			</div>
   	</div>
     <%= render 'shared/error_messages_match' %>
+    <hr>
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Auton</h3>
@@ -77,16 +79,16 @@
 				<%= f.label :drive_auton, "Drive points" %>
 				<%= f.check_box :drive_auton %>
 				<br>
-				<%= f.label :top_made_auton, "Top scored" %>
+				<%= f.label :top_made_auton, "Top made" %>
 				<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3 %>
 				<br>
-				<%= f.label :top_missed_auton, "Top missed" %>
+				<%= f.label :top_missed_auton, "Top failed" %>
 				<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3 %>
 				<br>
-				<%= f.label :low_made_auton, "Low scored" %>
+				<%= f.label :low_made_auton, "Low made" %>
 				<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3 %>
 				<br>
-				<%= f.label :low_missed_auton, "Low missed" %>
+				<%= f.label :low_missed_auton, "Low failed" %>
 				<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3 %>
 			</div>
 
@@ -148,7 +150,7 @@
 				<%= f.number_field :low_made_tele, step: 1, min: 0, max: 30 %>
 			</div>
 		</div>
-
+		<hr>
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Teleop scoring (other)</h3>
@@ -264,7 +266,7 @@
 				<br>
 			</div>
 		</div>
-
+		<hr>
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Misc attributes</h3>

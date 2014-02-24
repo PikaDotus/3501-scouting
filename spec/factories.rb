@@ -57,7 +57,7 @@ FactoryGirl.define do
 		goalie_blocked 1
 		goalie_failed 1
 		goalie_block_area 1
-		pure_defense false
+		pure_defense true
 		def_passes_interrupted 1
 		def_time_drain 1
 
@@ -69,7 +69,13 @@ FactoryGirl.define do
 		team_cooperate 1
 
 		when_not_offense 1
-		no_show false
-		dead false
+		no_show true
+		dead true
+	end
+
+	factory :note do
+		content "lorem ipsum"
+		votes 0
+		match
 	end
 end

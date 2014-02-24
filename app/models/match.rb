@@ -1,4 +1,6 @@
 class Match < ActiveRecord::Base
+	has_many :notes, dependent: :destroy
+
 	validates :team_number, presence: true
 	validates :red_1, presence: true
 	validates :red_2, presence: true
