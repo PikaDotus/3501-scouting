@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bootswatch-rails'
+gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
@@ -12,12 +13,6 @@ gem 'jquery-ui-rails'
 
 # some javascript stuff
 gem 'execjs'
-
-# twitter bootstrap css & javascript toolkit
-gem 'twitter-bootswatch-rails', '~> 3.1.1'
-
-# twitter bootstrap helpers gem, e.g., alerts etc...
-gem 'twitter-bootswatch-rails-helpers'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -39,9 +34,9 @@ group :test do
   gem 'growl', '1.0.3'
 end
 
-gem 'sass-rails', '4.0.0'
+gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
-gem 'coffee-rails', '4.0.0'
+gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
