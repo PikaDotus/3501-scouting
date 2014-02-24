@@ -12,31 +12,8 @@ $grayMediumLight: #eaeaea;
 
 /* universal */
 
-@font-face {
-  font-family: "SourceSansPro";
-  src: font-url('source_sans_pro/SourceSansProRegular.otf');
-}
-
-@font-face {
-  font-family: "SourceSansPro";
-  src: font-url('source_sans_pro/SourceSansProBold.otf');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "SourceSansPro";
-  src: font-url('source_sans_pro/SourceSansProIt.otf');
-  font-weight: italic;
-}
-
-@font-face {
-  font-family: "SourceSansPro";
-  src: font-url('source_sans_pro/SourceSansProBoldIt.otf');
-  font-weight: bold italic;
-}
-
 * {
-  font-family: "SourceSansPro" !important;
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 
 html {
