@@ -1,9 +1,9 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "3501 scouting", root_path, id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav pull-right navbar-nav">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>

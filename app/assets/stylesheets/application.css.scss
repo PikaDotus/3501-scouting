@@ -1,22 +1,9 @@
-/* set your own vars here */
-
-@import "custom.css.scss";
-
 /*
-@import "bootswatch/cosmo/variables";
-
-// Then bootstrap itself
-@import "bootstrap";
-
-// Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
-
-// Responsive styles go here in case you want them
-@import "bootstrap-responsive";
-
-// And finally bootswatch style itself
-@import "bootswatch/cosmo/bootswatch";
-
-// Whatever application styles you have go last
-@import "custom.css.scss"
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
 */
+
+@import "bootstrap";
+@import "bootswatch";
+@import "custom";

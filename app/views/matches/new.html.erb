@@ -13,62 +13,51 @@
 
 	input.slide {width: 100% !important;}
 	.no-bold {font-weight: normal !important;}
-
-	div.table {
-		display: table;
-		width: 100%;
-		table-layout: fixed;
-	}
-	div.table span {
-		display: table-cell;
-		text-align: center;
-		border: 1px solid lightgray;
-		border-left-width: 0;
-	}
-	div.table span.left {border-left-width: 1px;}
-	div.table span.red {border-color: red;}
-	div.table span.blue {border-color: blue;}
 </style>
 
 <h1>New match</h1>
+
 <div class="container">
 
   <%= form_for(@match) do |f| %>
   	<div class="row center">
   		<%= f.label :team_number, class: 'separate large-label' %>
   		<%= f.number_field :team_number, step: 1, min: 1, max: 6000, class: 'separate' %>
-  		<br><hr><br>
-			<div class="row">
-				<div class="col-md-4">
-					<%= f.label :red_1, class: 'separate' %>
-  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
-				<div class="col-md-4">
-					<%= f.label :red_1, class: 'separate' %>
-  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
-				<div class="col-md-4">
-					<%= f.label :red_1, class: 'separate' %>
-  				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
+		</div>
+		<br><hr><br>
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label :red_1, class: 'separate' %>
+				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<%= f.label :blue_1, class: 'separate' %>
-  				<%= f.number_field :blue_1, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
-				<div class="col-md-4">
-					<%= f.label :blue_2, class: 'separate' %>
-  				<%= f.number_field :blue_2, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
-				<div class="col-md-4">
-					<%= f.label :blue_3, class: 'separate' %>
-  				<%= f.number_field :blue_3, step: 1, min: 1, max: 6000, class: 'separate' %>
-				</div>
+			<div class="col-md-4">
+				<%= f.label :red_1, class: 'separate' %>
+				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+			</div>
+			<div class="col-md-4">
+				<%= f.label :red_1, class: 'separate' %>
+				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label :blue_1, class: 'separate' %>
+				<%= f.number_field :blue_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+			</div>
+			<div class="col-md-4">
+				<%= f.label :blue_2, class: 'separate' %>
+				<%= f.number_field :blue_2, step: 1, min: 1, max: 6000, class: 'separate' %>
+			</div>
+			<div class="col-md-4">
+				<%= f.label :blue_3, class: 'separate' %>
+				<%= f.number_field :blue_3, step: 1, min: 1, max: 6000, class: 'separate' %>
 			</div>
   	</div>
+
     <%= render 'shared/error_messages_match' %>
     <hr>
+
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Auton</h3>
@@ -137,6 +126,7 @@
 				<%= f.label :dead, "Dead" %>
 				<%= f.check_box :dead %>
 			</div>
+
 			<div class="col-md-4">
 				<h3>Teleop scoring (shots)</h3>
 
@@ -150,7 +140,9 @@
 				<%= f.number_field :low_made_tele, step: 1, min: 0, max: 30 %>
 			</div>
 		</div>
+
 		<hr>
+
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Teleop scoring (other)</h3>
@@ -167,6 +159,7 @@
 				<%= f.label :truss_missed, "Truss shots missed" %>
 				<%= f.number_field :truss_missed, step: 1, min: 0, max: 30 %>
 			</div>
+
 			<div class="col-md-4">
 				<h3>Teleop interaction</h3>
 
@@ -218,6 +211,7 @@
 				<%= f.label :good_receptions, "Good receptions" %>
 				<%= f.number_field :truss_missed, step: 1, min: 0, max: 50 %>
 			</div>
+
 			<div class="col-md-4">
 				<h3>Defense</h3>
 
@@ -266,31 +260,34 @@
 				<br>
 			</div>
 		</div>
+
 		<hr>
+
 		<div class="row">
 			<div class="col-md-4">
 				<h3>Misc attributes</h3>
 
 				<%= f.label :human_player_skill, "Human player skill", class: 'radio-label' %>
-				<div class="table">
-					<span class='left'>0</span>
-					<span>1</span>
-					<span>2</span>
-					<span>3</span>
-					<span>4</span>
-					<span>5</span>
-				</div>
+				<div class="col-md-2">0</div>
+				<div class="col-md-2">1</div>
+				<div class="col-md-2">2</div>
+				<div class="col-md-2">3</div>
+				<div class="col-md-2">4</div>
+				<div class="col-md-2">5</div>
 				<%= f.range_field :human_player_skill, min: 0, max: 5, class: 'slide' %>
 			</div>
+
 			<div class="col-md-4">
 				<h3>Test</h3>
 			</div>
+
 			<div class="col-md-4">
 				<h3>Notes</h3>
 			</div>
 		</div>
 
 		<br>
+
 		<div class="center">
     	<%= f.submit "Submit match", class: "btn btn-large" %>
     </div>
