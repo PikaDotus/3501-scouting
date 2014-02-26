@@ -17,9 +17,9 @@
 
 <h1>New match</h1>
 
-<div class="container">
-
+<div class="container well">
   <%= form_for(@match) do |f| %>
+  	<%= f.hidden_field :scouter_email, value: current_user.email %>
   	<div class="row center">
   		<%= f.label :team_number, class: 'separate large-label' %>
   		<%= f.number_field :team_number, step: 1, min: 1, max: 6000, class: 'separate' %>
@@ -31,12 +31,12 @@
 				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
 			</div>
 			<div class="col-md-4">
-				<%= f.label :red_1, class: 'separate' %>
-				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				<%= f.label :red_2, class: 'separate' %>
+				<%= f.number_field :red_2, step: 1, min: 1, max: 6000, class: 'separate' %>
 			</div>
 			<div class="col-md-4">
-				<%= f.label :red_1, class: 'separate' %>
-				<%= f.number_field :red_1, step: 1, min: 1, max: 6000, class: 'separate' %>
+				<%= f.label :red_3, class: 'separate' %>
+				<%= f.number_field :red_3, step: 1, min: 1, max: 6000, class: 'separate' %>
 			</div>
 		</div>
 

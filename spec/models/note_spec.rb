@@ -26,7 +26,7 @@ describe Note do
 	end
 
 	describe 'with content that is too long' do
-		before { @note.content = 'a' * 1000 }
+		before { @note.content = 'a' * 1001 }
 		it { should_not be_valid }
 	end
 end
