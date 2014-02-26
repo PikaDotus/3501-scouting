@@ -68,7 +68,6 @@ FactoryGirl.define do
 		team_follow 1
 		team_cooperate 1
 
-		when_not_offense 1
 		no_show true
 		dead true
 	end

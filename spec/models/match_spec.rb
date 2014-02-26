@@ -47,7 +47,6 @@ describe Match do
 		team_compromise: 1,
 		team_follow: 1,
 		team_cooperate: 1,
-		when_not_offense: 1,
 		no_show: true,
 		dead: true
 		) }
@@ -99,7 +98,6 @@ describe Match do
 	it { should respond_to(:team_compromise) }
 	it { should respond_to(:team_follow) }
 	it { should respond_to(:team_cooperate) }
-	it { should respond_to(:when_not_offense) }
 	it { should respond_to(:no_show) }
 	it { should respond_to(:dead) }
 	it { should respond_to(:notes) }

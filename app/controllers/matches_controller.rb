@@ -68,7 +68,6 @@ class MatchesController < ApplicationController
 				:team_compromise,
 				:team_follow,
 				:team_cooperate,
-				:when_not_offense,
 				:no_show,
 				:dead)
   	end

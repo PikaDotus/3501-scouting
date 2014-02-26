@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223192359) do
+ActiveRecord::Schema.define(version: 20140226022938) do
 
   create_table "matches", force: true do |t|
     t.integer  "team_number"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140223192359) do
     t.integer  "team_compromise"
     t.integer  "team_follow"
     t.integer  "team_cooperate"
-    t.integer  "when_not_offense"
     t.boolean  "no_show"
     t.boolean  "dead"
     t.datetime "created_at"
