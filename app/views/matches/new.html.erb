@@ -1,23 +1,66 @@
 <% provide(:title, 'New match') %>
 <style>
 	input {width: 25%;}
-	input[type="radio"] {margin: 1px 10px 0;}
 	input[type='checkbox'] {margin: -2px 10px 0;}
-
-	label.separate {margin: 0px 10px 0px;}
-	input.separate {margin: 10px 0px 10px;}
-
 	label {display: inline; font-weight: bold;}
 	label.radio-label {display: block !important;}
+	label.separate {margin: 0px 10px 0px;}
+	input.separate {margin: 10px 0px 10px;}
+	input[type="radio"] {margin: 1px 10px 0;}
 	label.large-label {font-size: 150%;}
-
 	input.slide {width: 100% !important;}
 	.no-bold {font-weight: normal !important;}
 </style>
 
 <h1>New match</h1>
 
-<div class="container well">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+  	LEL SWAG ME OUT DESU
+  </div>
+  <div class="tab-pane" id="profile">
+  	SITAR HAS TO PRACTICE FOR BAND FINAL
+  </div>
+  <div class="tab-pane" id="messages">
+  	LOGAN DOESN'T LEL
+  </div>
+  <div class="tab-pane" id="settings">
+  	YAY ROBOTICS TOMORROW :DDD
+  </div>
+</div>
+
+<div class="container">
   <%= form_for(@match) do |f| %>
   	<%= f.hidden_field :scouter_email, value: current_user.email %>
   	<div class="row center">
@@ -62,23 +105,23 @@
 			<div class="col-md-4">
 				<h3>Auton</h3>
 
-				<%= f.label :hot_auton, "Scored in hot goal" %>
-				<%= f.check_box :hot_auton %>
+				<%= f.label :hot_auton, "Scored in hot goal", class: "separate" %>
+				<%= f.check_box :hot_auton, class: "separate" %>
 				<br>
-				<%= f.label :drive_auton, "Drive points" %>
-				<%= f.check_box :drive_auton %>
+				<%= f.label :drive_auton, "Drive points", class: "separate" %>
+				<%= f.check_box :drive_auton, class: "separate" %>
 				<br>
-				<%= f.label :top_made_auton, "Top made" %>
-				<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3 %>
+				<%= f.label :top_made_auton, "Top made", class: "separate" %>
+				<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3, class: "separate" %>
 				<br>
-				<%= f.label :top_missed_auton, "Top failed" %>
-				<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3 %>
+				<%= f.label :top_missed_auton, "Top failed", class: "separate" %>
+				<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3, class: "separate" %>
 				<br>
-				<%= f.label :low_made_auton, "Low made" %>
-				<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3 %>
+				<%= f.label :low_made_auton, "Low made", class: "separate" %>
+				<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3, class: "separate" %>
 				<br>
-				<%= f.label :low_missed_auton, "Low failed" %>
-				<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3 %>
+				<%= f.label :low_missed_auton, "Low failed", class: "separate" %>
+				<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3, class: "separate" %>
 			</div>
 
 			<div class="col-md-4">
@@ -86,38 +129,73 @@
 
 				<%= f.label :speed, "Speed" %>
 				<br>
-				<%= f.radio_button :speed, 'very slow', value: 1 %>
-				<%= f.label :speed_very_slow, "very slow", class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :speed, 'slow', value: 2 %>
-				<%= f.label :speed_slow, 'slow', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :speed, 'decent', value: 3 %>
-				<%= f.label :speed_decent, 'decent', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :speed, 'fast', value: 4 %>
-				<%= f.label :speed_fast, 'fast', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :speed, 'very fast', value: 5 %>
-				<%= f.label :speed_very_fast, 'very fast', class: 'no-bold' %>
-				<br>
+				<div class="btn-group btn-group-justified" data-toggle='buttons'>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.radio_button :speed, 'very slow', value: 1, style: 'display:none;' %>
+							<%= f.label :speed_very_slow, "very slow", class: 'no-bold' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.radio_button :speed, 'slow', value: 2, style: 'display:none;' %>
+							<%= f.label :speed_slow, 'slow', class: 'no-bold' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.radio_button :speed, 'decent', value: 3, style: 'display:none;' %>
+							<%= f.label :speed_decent, 'decent', class: 'no-bold' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.radio_button :speed, 'fast', value: 4, style: 'display:none;' %>
+							<%= f.label :speed_fast, 'fast', class: 'no-bold' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.radio_button :speed, 'very fast', value: 5, style: 'display:none;' %>
+							<%= f.label :speed_very_fast, 'very fast', class: 'no-bold' %>
+						</button>
+					</div>
+				</div>
 
 				<%= f.label :driver_skill, "Driver skill" %>
 				<br>
-				<%= f.radio_button :driver_skill, 'poor', value: 1 %>
-				<%= f.label :driver_skill_poor, "poor", class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :driver_skill, 'okay', value: 2 %>
-				<%= f.label :driver_skill_okay, 'okay', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :driver_skill, 'decent', value: 3 %>
-				<%= f.label :driver_skill_decent, 'decent', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :driver_skill, 'good', value: 4 %>
-				<%= f.label :driver_skill_good, 'good', class: 'no-bold' %>
-				<br>
-				<%= f.radio_button :driver_skill, 'great', value: 5 %>
-				<%= f.label :driver_skill_great, 'great', class: 'no-bold' %>
+				<div class="btn-group btn-group-justified" data-toggle="buttons">
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.label :driver_skill_poor, "poor", class: 'no-bold' %>
+							<%= f.radio_button :driver_skill, 'poor', value: 1, style: 'display:none;' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.label :driver_skill_okay, 'okay', class: 'no-bold' %>
+							<%= f.radio_button :driver_skill, 'okay', value: 2, style: 'display:none;' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.label :driver_skill_decent, 'decent', class: 'no-bold' %>
+							<%= f.radio_button :driver_skill, 'decent', value: 3, style: 'display:none;' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.label :driver_skill_good, 'good', class: 'no-bold' %>
+							<%= f.radio_button :driver_skill, 'good', value: 4, style: 'display:none;' %>
+						</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" data-toggle="button">
+							<%= f.label :driver_skill_great, 'great', class: 'no-bold' %>
+							<%= f.radio_button :driver_skill, 'great', value: 5, style: 'display:none;' %>
+						</button>
+					</div>
+				</div>
 				<br>
 
 				<%= f.label :no_show, "No show" %>
@@ -179,6 +257,7 @@
 				<br>
 				<%= f.radio_button :static_pickup, 'very fast', value: 5 %>
 				<%= f.label :static_pickup_very_fast, 'very fast', class: 'no-bold' %>
+
 				<br>
 
 				<%= f.label :moving_pickup, "Moving pickup speed" %>
