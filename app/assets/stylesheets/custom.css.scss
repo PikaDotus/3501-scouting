@@ -163,19 +163,6 @@ aside {
 }
 
 
-/* match page style */
-
-input {width: 25%;}
-input[type='checkbox'] {margin: -2px 10px 0;}
-label {display: inline; font-weight: bold;}
-label.separate {margin: 0px 10px 0px;}
-input.separate {margin: 10px 0px 10px;}
-input[type="radio"] {margin: 1px 10px 0;}
-label.large-label {font-size: 150%;}
-input.slide {width: 100% !important;}
-.no-bold {font-weight: normal !important;}
-
-
 /* forms */
 
 // orange is #df691a
@@ -228,9 +215,6 @@ input {
   }
 }
 
-div.pagination ul {
-
-}
 
 /* miscellaneous */
 
@@ -240,4 +224,47 @@ div.pagination ul {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+
+/* match page style */
+
+input {
+  width: 25%;
+}
+input[type='checkbox'] {
+  margin: -2px 10px 0;
+}
+label {
+  display: inline; font-weight: bold;
+}
+input[type="radio"] {
+  margin: 1px 10px 0;
+}
+label.large-label {
+  font-size: 150%;
+}
+input.slide {
+  width: 100% !important;
+}
+.no-bold {
+  font-weight: normal !important;
+}
+label.separate {
+  margin: 0px 10px 0px;
+}
+input.separate {
+  margin: 10px 0px 10px;
+}
+
+div.separate {
+  input {
+    margin: 10px 0px 10px;
+  }
+  label {
+    margin: 0px 10px 0px;
+  }
+}
+div.btn-group-justified {
+  margin-left: 10px;
 }
