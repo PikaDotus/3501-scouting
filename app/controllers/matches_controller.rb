@@ -1,6 +1,10 @@
 class MatchesController < ApplicationController
 	# before_action :signed_in_user, only: [:new, :create, :show]
 
+	def index
+		@matches = Match.paginate(page: params[:page])
+	end
+
   def show
   	@match = Match.find(params[:id])
   end

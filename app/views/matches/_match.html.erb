@@ -1,0 +1,6 @@
+<li>
+	<%= link_to "Match ##{match.id}", match %>
+	<%= "––team scouted: #{match.team_number}––" %>
+	scouted by:
+	<%= link_to (User.find_by email: match.scouter_email).name, (User.find_by email: match.scouter_email) %>
+</li>

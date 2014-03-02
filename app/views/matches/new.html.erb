@@ -373,7 +373,7 @@
 				</div>
 
 				<%= f.label :def_time_drain, "Time drain caused", class: 'separate' %>
-				<div class="btn-group btn-group-justified">
+				<div class="btn-group btn-group-justified" data-toggle='buttons'>
 					<div class='btn-group'>
 						<button class='btn btn-default' type='button' data-toggle='button'>
 							<%= f.radio_button :def_time_drain, '1', value: 1, style: 'display:none' %>
@@ -417,7 +417,7 @@
 				<h3>Misc attributes</h3>
 
 				<%= f.label :human_player_skill, "Human player skill", class: 'separate' %>
-				<div class="btn-group btn-group-justified">
+				<div class="btn-group btn-group-justified" data-toggle='buttons'>
 					<div class='btn-group'>
 						<button class='btn btn-default' type='button' data-toggle='button'>
 							<%= f.radio_button :human_player_skill, '1', value: 1, style: 'display:none' %>
