@@ -10,12 +10,22 @@ gem 'will_paginate', '3.0.5'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'jquery-ui-rails'
 gem 'thin'
+#gem 'ruport'
+#gem 'ruport-util'
+#gem 'prawn'
+#gem 'acts_as_reportable'
+#gem 'fastercsv'
+##gem 'RedCloth'
+gem 'chartkick'
+gem 'groupdate'
+
+gem 'pg', '0.15.1'
 
 # some javascript stuff
 gem 'execjs'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec', '2.5.0'
@@ -47,6 +57,6 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  #gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end

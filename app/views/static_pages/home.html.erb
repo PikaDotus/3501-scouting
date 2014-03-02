@@ -19,3 +19,5 @@
 		<div class="col-md-3"></div>
 	</div>
 </div>
+
+<%= line_chart User.group_by_day(:created_at).count %>
