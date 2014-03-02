@@ -4,25 +4,25 @@
 	@media only screen and (max-width: 800px) {
 
     /* Force table to not be like tables anymore */
-		#no-more-tables table,
-		#no-more-tables thead,
-		#no-more-tables tbody,
-		#no-more-tables th,
-		#no-more-tables td,
-		#no-more-tables tr {
+		#match-table table,
+		#match-table thead,
+		#match-table tbody,
+		#match-table th,
+		#match-table td,
+		#match-table tr {
 			display: block;
 		}
 
 		/* Hide table headers (but not display: none;, for accessibility) */
-		#no-more-tables thead tr {
+		#match-table thead tr {
 			position: absolute;
 			top: -9999px;
 			left: -9999px;
 		}
 
-		#no-more-tables tr { border: 1px solid #ccc; }
+		#match-table tr { border: 1px solid #ccc; }
 
-		#no-more-tables td {
+		#match-table td {
 			/* Behave  like a "row" */
 			border: none;
 			border-bottom: 1px solid #eee;
@@ -32,7 +32,7 @@
 			text-align:left;
 		}
 
-		#no-more-tables td:before {
+		#match-table td:before {
 			/* Now like a table header */
 			position: absolute;
 			/* Top/left values mimic padding */
@@ -48,14 +48,14 @@
 		/*
 		Label the data
 		*/
-		#no-more-tables td:before { content: attr(data-title); }
+		#match-table td:before { content: attr(data-title); }
 	}
 </style>
 
 <h1>Match #<%= @match.id %> for team #<%= @match.team_number %></h1>
 
     <div class="row">
-      <div id="no-more-tables">
+      <div id="match-table">
           <table class="col-md-12 table-bordered table-striped table-condensed cf">
       		<thead class="cf">
       			<tr>
@@ -66,7 +66,7 @@
       				<th class='numeric'>Blue 1</th>
       				<th class='numeric'>Blue 2</th>
       				<th class='numeric'>Blue 3</th>
-      				<th>Scouter email</th>
+      				<th>Scouter</th>
       				<th clas='numeric'>Top made tele</th>
       				<th clas='numeric'>Top missed tele</th>
       				<th clas='numeric'>Low made tele</th>
@@ -109,7 +109,7 @@
 							<td data-title='Blue 1' class='numeric'><%= @match.blue_1 %></td>
 							<td data-title='Blue 2' class='numeric'><%= @match.blue_2 %></td>
 							<td data-title='Blue 3' class='numeric'><%= @match.blue_3 %></td>
-							<td data-title='Scouter email'><%= @match.scouter_email %></td>
+							<td data-title='Scouter'><%= (User.find_by email: @match.scouter_email).name %></td>
 							<td data-title='Top made tele' class='numeric'><%= @match.top_made_tele %></td>
 							<td data-title='Top missed tele' class='numeric'><%= @match.top_missed_tele %></td>
 							<td data-title='Low made tele' class='numeric'><%= @match.low_made_tele %></td>
