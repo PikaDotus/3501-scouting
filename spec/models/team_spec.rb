@@ -21,6 +21,14 @@ describe Team do
 	describe 'match associations' do
 		before { @team.save }
 		let!(:older_match) do
-			FactoryGirl.create(:match, )
+			FactoryGirl.create(:match, team: @team, created_at: 1.day.ago)
 		end
+		let!(:newer_match) do
+			FactoryGirl.create(:match, team: @team, created_at: 1.hour.ago)
+		end
+
+		it 'should have the right matches in the right order' do
+			expect(@team.matches.to_a).to eq [newer_match, older_match]
+		end
+	end
 end

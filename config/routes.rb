@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
   get "matches/new"
-  resources :users, :matches
+  resources :users, :matches, :teams
   resources :sessions, only: [:new, :create, :destroy]
 
   root 'static_pages#home'

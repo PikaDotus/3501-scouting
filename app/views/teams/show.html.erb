@@ -1,0 +1,14 @@
+<% provide(:title, @team.number) %>
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<% if @team.matches.any? %>
+			<h3>Matches (<%= @team.matches.count %>)</h3>
+			<ol class="matches">
+				<%= render @matches %>
+			</ol>
+		<% end %>
+	</div>
+	<div class="col-md-2"></div>
+</div>
