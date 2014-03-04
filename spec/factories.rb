@@ -10,6 +10,12 @@ FactoryGirl.define do
 		end
 	end
 
+	factory :team do
+		#sequence(:number) { |n| n }
+		number 5
+		pic_url "http://upload.wikimedia.org/wikipedia/en/5/5c/C-3PO_droid.png"
+	end
+
 	factory :match do
 		#sequence(:team_number) { |n| n }
 		# GATHERED AUTOMATICALLY ONCE PER MATCH

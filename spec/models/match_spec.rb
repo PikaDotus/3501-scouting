@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Match do
-	before { @match = Match.new(
+	let(:team) { Team.create(number: 3501, pic_url: 'http://upload.wikimedia.org/wikipedia/en/5/5c/C-3PO_droid.png') }
+
+	before { @match = team.matches.build(
 		team_number: 3501,
 		red_1: 1,
 		red_2: 1,
@@ -103,6 +105,8 @@ describe Match do
 	it { should respond_to(:notes) }
 
 	it { should be_valid }
+	it { should respond_to(:team) }
+	its(:team) { should eq team }
 
 	describe 'note associations' do
 
