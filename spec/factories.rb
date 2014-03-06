@@ -20,6 +20,7 @@ FactoryGirl.define do
 		#sequence(:team_number) { |n| n }
 		# GATHERED AUTOMATICALLY ONCE PER MATCH
 		team_number 3501
+		team_id team_number
 		red_1 1
 		red_2 1
 		red_3 1

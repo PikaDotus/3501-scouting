@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140304014900) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "matches", force: true do |t|
     t.integer  "team_number"
     t.integer  "red_1"
@@ -77,7 +74,7 @@ ActiveRecord::Schema.define(version: 20140304014900) do
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["match_id", "votes"], name: "index_notes_on_match_id_and_votes", using: :btree
+  add_index "notes", ["match_id", "votes"], name: "index_notes_on_match_id_and_votes"
 
   create_table "teams", force: true do |t|
     t.integer  "number"
@@ -86,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140304014900) do
     t.datetime "updated_at"
   end
 
-  add_index "teams", ["number"], name: "index_teams_on_number", using: :btree
+  add_index "teams", ["number"], name: "index_teams_on_number"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -98,7 +95,7 @@ ActiveRecord::Schema.define(version: 20140304014900) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

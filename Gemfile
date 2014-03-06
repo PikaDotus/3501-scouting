@@ -16,16 +16,18 @@ gem 'thin'
 #gem 'acts_as_reportable'
 #gem 'fastercsv'
 ##gem 'RedCloth'
-gem 'chartkick'
-gem 'groupdate'
+gem 'chartkick', '~> 1.2.2'
+#gem 'groupdate', '~> 1.0.4'
+gem 'groupdate', :github => 'mieko/groupdate', :branch => 'sqlite3'
+#gem 'friendly_id', '~> 5.0.0'
 
-gem 'pg', '0.15.1'
+#gem 'pg', '0.15.1'
 
 # some javascript stuff
 gem 'execjs'
 
 group :development, :test do
-  #gem 'sqlite3', '1.3.8'
+  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec', '2.5.0'
@@ -57,6 +59,6 @@ group :doc do
 end
 
 group :production do
-  #gem 'pg', '0.15.1'
+  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end

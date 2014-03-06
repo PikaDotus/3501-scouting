@@ -57,5 +57,6 @@ class Match < ActiveRecord::Base
 		self.team_compromise ||= 0
 		self.team_follow ||= 0
 		self.team_cooperate ||= 0
+		self.team_id = self.team_number
   end
 end
