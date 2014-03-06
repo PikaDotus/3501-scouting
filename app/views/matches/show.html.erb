@@ -123,7 +123,6 @@
 							<td data-title='Catches missed' class='numeric'><%= @match.catch_missed %></td>
 							<td data-title='Trusses made' class='numeric'><%= @match.truss_made %></td>
 							<td data-title='Trusses missed' class='numeric'><%= @match.truss_missed %></td>
-							<td data-title='Static pickup speed' class='numeric'><%= @match.static_pickup %></td>
 							<td data-title='Moving pickup speed' class='numeric'><%= @match.moving_pickup %></td>
 							<td data-title='Attempted passes' class='numeric'><%= @match.attempted_passes %></td>
 							<td data-title='Accurate passes' class='numeric'><%= @match.accurate_passes %></td>
@@ -152,5 +151,10 @@
 		<div class="row">
 		  <%= link_to "New match", newmatch_path, class: "btn btn-large btn-primary" %>
 		</div>
+
+		<h3>Notes</h3>
+		<ul>
+			<%= render @notes %>
+		</ul>
 
 		<%= line_chart  %>

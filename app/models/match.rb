@@ -4,12 +4,8 @@ class Match < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 
 	validates :team_number, presence: true
-	validates :red_1, presence: true
-	validates :red_2, presence: true
-	validates :red_3, presence: true
-	validates :blue_1, presence: true
-	validates :blue_2, presence: true
-	validates :blue_3, presence: true
+	validates :match_type, presence: true
+	validates :match_number, presence: true
 	validates :scouter_email, presence: true
 
 	after_initialize :init
@@ -35,7 +31,6 @@ class Match < ActiveRecord::Base
 		self.catch_missed ||= 0
 		self.truss_made ||= 0
 		self.truss_missed ||= 0
-		self.static_pickup ||= 0
 		self.moving_pickup ||= 0
 		self.attempted_passes ||= 0
 		self.accurate_passes ||= 0
@@ -57,6 +52,8 @@ class Match < ActiveRecord::Base
 		self.team_compromise ||= 0
 		self.team_follow ||= 0
 		self.team_cooperate ||= 0
+		self.hold_ball ||= 0
+		self.possessions ||= 0
 		self.team_id = self.team_number
   end
 end

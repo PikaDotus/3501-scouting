@@ -46,7 +46,6 @@ FactoryGirl.define do
 		truss_made 1
 		truss_missed 1
 
-		static_pickup 1
 		moving_pickup 1
 		attempted_passes 1
 		accurate_passes 1
@@ -74,6 +73,11 @@ FactoryGirl.define do
 		team_compromise 1 # grab from stuart
 		team_follow 1
 		team_cooperate 1
+
+		match_type 1
+		hold_ball 1
+		match_number 1
+		possessions 1
 
 		no_show true
 		dead true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304014900) do
+ActiveRecord::Schema.define(version: 20140306040251) do
 
   create_table "matches", force: true do |t|
     t.integer  "team_number"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140304014900) do
     t.integer  "catch_missed"
     t.integer  "truss_made"
     t.integer  "truss_missed"
-    t.integer  "static_pickup"
     t.integer  "moving_pickup"
     t.integer  "attempted_passes"
     t.integer  "accurate_passes"
@@ -64,17 +63,43 @@ ActiveRecord::Schema.define(version: 20140304014900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "team_id"
+    t.integer  "match_type"
+    t.boolean  "hold_ball"
+    t.integer  "possessions"
+    t.integer  "match_number"
   end
 
   create_table "notes", force: true do |t|
     t.string   "content"
-    t.integer  "votes"
     t.integer  "match_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["match_id", "votes"], name: "index_notes_on_match_id_and_votes"
+  add_index "notes", ["match_id"], name: "index_notes_on_match_id_and_votes"
+
+  create_table "sqlite_sp_functions", id: false, force: true do |t|
+    t.text "name"
+    t.text "text"
+  end
+
+# Could not dump table "sqlite_stat1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sqlite_stat4" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "sqlite_vs_links_names", id: false, force: true do |t|
+    t.text "name"
+    t.text "alias"
+  end
+
+  create_table "sqlite_vs_properties", id: false, force: true do |t|
+    t.text "parentType"
+    t.text "parentName"
+    t.text "propertyName"
+    t.text "propertyValue"
+  end
 
   create_table "teams", force: true do |t|
     t.integer  "number"

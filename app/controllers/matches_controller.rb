@@ -49,7 +49,6 @@ class MatchesController < ApplicationController
 				:catch_missed,
 				:truss_made,
 				:truss_missed,
-				:static_pickup,
 				:moving_pickup,
 				:attempted_passes,
 				:accurate_passes,
@@ -73,6 +72,9 @@ class MatchesController < ApplicationController
 				:team_follow,
 				:team_cooperate,
 				:no_show,
-				:dead)
+				:dead,
+				:match_type,
+				:hold_ball,
+				:possessions)
   	end
 end

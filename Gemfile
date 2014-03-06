@@ -20,7 +20,6 @@ gem 'chartkick', '~> 1.2.2'
 #gem 'groupdate', '~> 1.0.4'
 gem 'groupdate', :github => 'mieko/groupdate', :branch => 'sqlite3'
 #gem 'friendly_id', '~> 5.0.0'
-
 #gem 'pg', '0.15.1'
 
 # some javascript stuff
@@ -35,6 +34,7 @@ group :development, :test do
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'debugger'
+  gem 'better_errors'
 end
 
 group :test do
