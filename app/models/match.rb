@@ -52,6 +52,7 @@ class Match < ActiveRecord::Base
 		self.team_compromise ||= 0
 		self.team_follow ||= 0
 		self.team_cooperate ||= 0
+		self.match_type ||= 0
 		self.hold_ball ||= 0
 		self.possessions ||= 0
 		self.team_id = self.team_number

@@ -165,21 +165,33 @@
 <div class="row notes">
 	<% if @match.notes.any? %>
 		<h3>Notes</h3>
-		<ol class='notes'>
+		<ul class='notes'>
 			<%= render @notes %>
-		</ol>
+		</ul>
 	<% end %>
 
-	<%= form_for(@note) do |f| %>
-		<%= render 'shared/error_messages_match', object: f.object %>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<%= form_for(@note) do |f| %>
+			<%= render 'shared/error_messages_match', object: f.object %>
 
-		<% @match_url = request.fullpath %>
-		<%= f.hidden_field 'match_url', value: @match_url %>
+			<% @match_url = request.fullpath %>
+			<%= f.hidden_field 'match_url', value: @match_url %>
 
-		<div class="field">
-			<%= f.text_area :content, placeholder: "Compose new note" %>
+			<div class="field">
+				<%= f.text_area :content, placeholder: "Compose new note" %>
+			</div>
 		</div>
+		<div class="col-md-3"></div>
+	</div>
 
-		<%= f.submit "Submit", class: 'btn btn-large btn-primary' %>
-	<% end %>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<%= f.submit "Submit", class: 'btn btn-large' %>
+			<% end %>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>

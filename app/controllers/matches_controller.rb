@@ -18,7 +18,7 @@ class MatchesController < ApplicationController
   def create
   	@match = Match.new(match_params)
   	if @match.save
-  		Math.find(params[@match.id]).notes.build(note_params)
+  		#Match.find(params[@match.id]).notes.build(note_params)
   		flash[:success] = 'Match saved!'
   		redirect_to @match
   	else
@@ -31,6 +31,7 @@ class MatchesController < ApplicationController
   	def match_params
   		params.require(:match).permit(
   			:team_number,
+  			:match_number,
 				:red_1,
 				:red_2,
 				:red_3,
