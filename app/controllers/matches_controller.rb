@@ -7,6 +7,8 @@ class MatchesController < ApplicationController
 
   def show
   	@match = Match.find(params[:id])
+  	@notes = @match.notes
+  	@note = @match.notes.build
   end
 
   def new
@@ -16,6 +18,7 @@ class MatchesController < ApplicationController
   def create
   	@match = Match.new(match_params)
   	if @match.save
+  		Math.find(params[@match.id]).notes.build(note_params)
   		flash[:success] = 'Match saved!'
   		redirect_to @match
   	else

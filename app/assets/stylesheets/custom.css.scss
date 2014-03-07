@@ -264,3 +264,19 @@ div.separate {
 div.btn-group-justified {
   margin-left: 10px;
 }
+
+/* match page show style */
+
+div.notes {
+  span.content {
+    margin-right: 10px;
+  }
+  span.timestamp {
+    margin-left: 10px;
+  }
+  li {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

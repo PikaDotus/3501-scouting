@@ -54,107 +54,132 @@
 
 <h1>Match #<%= @match.id %> for team #<%= @match.team_number %></h1>
 
-    <div class="row">
-      <div id="match-table">
-          <table class="col-md-12 table-bordered table-striped table-condensed cf">
-      		<thead class="cf">
-      			<tr>
-      				<th class='numeric'>Team number</th>
-      				<th class='numeric'>Red 1</th>
-      				<th class='numeric'>Red 2</th>
-      				<th class='numeric'>Red 3</th>
-      				<th class='numeric'>Blue 1</th>
-      				<th class='numeric'>Blue 2</th>
-      				<th class='numeric'>Blue 3</th>
-      				<th>Scouter</th>
-      				<th clas='numeric'>Top made tele</th>
-      				<th clas='numeric'>Top missed tele</th>
-      				<th clas='numeric'>Low made tele</th>
-      				<th>Hot auton?</th>
-      				<th>Drive auton?</th>
-      				<th class='numeric'>Top made auton</th>
-      				<th class='numeric'>Top missed auton</th>
-      				<th class='numeric'>Low made auton</th>
-      				<th class='numeric'>Low missed auton</th>
-      				<th class='numeric'>Catches made</th>
-							<th class='numeric'>Catches missed</th>
-							<th class='numeric'>Trusses made</th>
-							<th class='numeric'>Trusses missed</th>
-							<th class='numeric'>Static pickup speed</th>
-							<th class='numeric'>Moving pickup speed</th>
-							<th class='numeric'>Attempted passes</th>
-							<th class='numeric'>Accurate passes</th>
-							<th class='numeric'>Attempted receptions</th>
-							<th class='numeric'>Good receptions</th>
-							<th class='numeric'>Human player skill</th>
-							<th class='numeric'>Shots blocked, goalie</th>
-							<th class='numeric'>Shots not blocked, goalie</th>
-							<th class='numeric'>Goal blocked, goalie</th>
-							<th>Pure defense?</th>
-							<th class='numeric'>Passes interrupted</th>
-							<th class='numeric'>Defensive time drain</th>
-							<th class='numeric'>Speed</th>
-							<th class='numeric'>Driver skill</th>
-							<th>No show?</th>
-							<th>Dead?</th>
-							<th class='numeric'>Created at</th>
-      			</tr>
-      		</thead>
-      		<tbody>
-      			<tr>
-      				<td data-title='Team number' class='numeric'><%= @match.team_number %></td>
-							<td data-title='Red 1' class='numeric'><%= @match.red_1 %></td>
-							<td data-title='Red 2' class='numeric'><%= @match.red_2 %></td>
-							<td data-title='Red 3' class='numeric'><%= @match.red_3 %></td>
-							<td data-title='Blue 1' class='numeric'><%= @match.blue_1 %></td>
-							<td data-title='Blue 2' class='numeric'><%= @match.blue_2 %></td>
-							<td data-title='Blue 3' class='numeric'><%= @match.blue_3 %></td>
-							<td data-title='Scouter'><%= (User.find_by email: @match.scouter_email).name %></td>
-							<td data-title='Top made tele' class='numeric'><%= @match.top_made_tele %></td>
-							<td data-title='Top missed tele' class='numeric'><%= @match.top_missed_tele %></td>
-							<td data-title='Low made tele' class='numeric'><%= @match.low_made_tele %></td>
-							<td data-title='Hot auton?'><%= @match.hot_auton %></td>
-							<td data-title='Drive auton?'><%= @match.drive_auton %></td>
-							<td data-title='Top made auton' class='numeric'><%= @match.top_made_auton %></td>
-							<td data-title='Top missed auton' class='numeric'><%= @match.top_missed_auton %></td>
-							<td data-title='Low made auton' class='numeric'><%= @match.low_made_auton %></td>
-							<td data-title='Low missed auton' class='numeric'><%= @match.low_missed_auton %></td>
-							<td data-title='Catches made' class='numeric'><%= @match.catch_made %></td>
-							<td data-title='Catches missed' class='numeric'><%= @match.catch_missed %></td>
-							<td data-title='Trusses made' class='numeric'><%= @match.truss_made %></td>
-							<td data-title='Trusses missed' class='numeric'><%= @match.truss_missed %></td>
-							<td data-title='Moving pickup speed' class='numeric'><%= @match.moving_pickup %></td>
-							<td data-title='Attempted passes' class='numeric'><%= @match.attempted_passes %></td>
-							<td data-title='Accurate passes' class='numeric'><%= @match.accurate_passes %></td>
-							<td data-title='Attempted receptions' class='numeric'><%= @match.attempted_receptions %></td>
-							<td data-title='Good receptions' class='numeric'><%= @match.good_receptions %></td>
-							<td data-title='Human player skill' class='numeric'><%= @match.human_player_skill %></td>
-							<td data-title='Shots blocked, goalie' class='numeric'><%= @match.goalie_blocked %></td>
-							<td data-title='Shots not blocked, goalie' class='numeric'><%= @match.goalie_failed %></td>
-							<td data-title='Goal blocked, goalie' class='numeric'><%= @match.goalie_block_area %></td>
-							<td data-title='Pure defense?'><%= @match.pure_defense %></td>
-							<td data-title='Passes interrupted' class='numeric'><%= @match.def_passes_interrupted %></td>
-							<td data-title='Defensive time drain' class='numeric'><%= @match.def_time_drain %></td>
-							<td data-title='Speed' class='numeric'><%= @match.speed %></td>
-							<td data-title='Driver skill' class='numeric'><%= @match.driver_skill %></td>
-							<td data-title='No show?'><%= @match.no_show %></td>
-							<td data-title='Dead?'><%= @match.dead %></td>
-							<td data-title='Created at' class='numeric'><%= @match.created_at %></td>
-      			</tr>
-      		</tbody>
-      	</table>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <br>
-		<div class="row">
-		  <%= link_to "New match", newmatch_path, class: "btn btn-large btn-primary" %>
+<div class="row">
+  <div id="match-table">
+      <table class="col-md-12 table-bordered table-striped table-condensed cf">
+  		<thead class="cf">
+  			<tr>
+  				<th class='numeric'>Team number</th>
+  				<th class='numeric'>Match Type</th>
+  				<th class='numeric'>Ball hold</th>
+  				<th class='numeric'>Possessions</th>
+  				<th class='numeric'>Red 1</th>
+  				<th class='numeric'>Red 2</th>
+  				<th class='numeric'>Red 3</th>
+  				<th class='numeric'>Blue 1</th>
+  				<th class='numeric'>Blue 2</th>
+  				<th class='numeric'>Blue 3</th>
+  				<th>Scouter</th>
+  				<th clas='numeric'>Top made tele</th>
+  				<th clas='numeric'>Top missed tele</th>
+  				<th clas='numeric'>Low made tele</th>
+  				<th>Hot auton?</th>
+  				<th>Drive auton?</th>
+  				<th class='numeric'>Top made auton</th>
+  				<th class='numeric'>Top missed auton</th>
+  				<th class='numeric'>Low made auton</th>
+  				<th class='numeric'>Low missed auton</th>
+  				<th class='numeric'>Catches made</th>
+					<th class='numeric'>Catches missed</th>
+					<th class='numeric'>Trusses made</th>
+					<th class='numeric'>Trusses missed</th>
+					<th class='numeric'>Moving pickup speed</th>
+					<th class='numeric'>Attempted passes</th>
+					<th class='numeric'>Accurate passes</th>
+					<th class='numeric'>Attempted receptions</th>
+					<th class='numeric'>Good receptions</th>
+					<th class='numeric'>Human player skill</th>
+					<th class='numeric'>Shots blocked, goalie</th>
+					<th class='numeric'>Shots not blocked, goalie</th>
+					<th class='numeric'>Goal blocked, goalie</th>
+					<th>Pure defense?</th>
+					<th class='numeric'>Passes interrupted</th>
+					<th class='numeric'>Defensive time drain</th>
+					<th class='numeric'>Speed</th>
+					<th class='numeric'>Driver skill</th>
+					<th>No show?</th>
+					<th>Dead?</th>
+					<th class='numeric'>Created at</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr>
+  				<td data-title='Team number' class='numeric'><%= @match.team_number %></td>
+  				<td data-title='Match type' class='numeric'><%= @match.match_type %></td>
+  				<td data-title='Ball hold' class='numeric'><%= @match.hold_ball %></td>
+  				<td data-title='Possessions' class='numeric'><%= @match.possessions %></td>
+					<td data-title='Red 1' class='numeric'><%= @match.red_1 %></td>
+					<td data-title='Red 2' class='numeric'><%= @match.red_2 %></td>
+					<td data-title='Red 3' class='numeric'><%= @match.red_3 %></td>
+					<td data-title='Blue 1' class='numeric'><%= @match.blue_1 %></td>
+					<td data-title='Blue 2' class='numeric'><%= @match.blue_2 %></td>
+					<td data-title='Blue 3' class='numeric'><%= @match.blue_3 %></td>
+					<td data-title='Scouter'><%= (User.find_by email: @match.scouter_email).name %></td>
+					<td data-title='Top made tele' class='numeric'><%= @match.top_made_tele %></td>
+					<td data-title='Top missed tele' class='numeric'><%= @match.top_missed_tele %></td>
+					<td data-title='Low made tele' class='numeric'><%= @match.low_made_tele %></td>
+					<td data-title='Hot auton?'><%= @match.hot_auton %></td>
+					<td data-title='Drive auton?'><%= @match.drive_auton %></td>
+					<td data-title='Top made auton' class='numeric'><%= @match.top_made_auton %></td>
+					<td data-title='Top missed auton' class='numeric'><%= @match.top_missed_auton %></td>
+					<td data-title='Low made auton' class='numeric'><%= @match.low_made_auton %></td>
+					<td data-title='Low missed auton' class='numeric'><%= @match.low_missed_auton %></td>
+					<td data-title='Catches made' class='numeric'><%= @match.catch_made %></td>
+					<td data-title='Catches missed' class='numeric'><%= @match.catch_missed %></td>
+					<td data-title='Trusses made' class='numeric'><%= @match.truss_made %></td>
+					<td data-title='Trusses missed' class='numeric'><%= @match.truss_missed %></td>
+					<td data-title='Moving pickup speed' class='numeric'><%= @match.moving_pickup %></td>
+					<td data-title='Attempted passes' class='numeric'><%= @match.attempted_passes %></td>
+					<td data-title='Accurate passes' class='numeric'><%= @match.accurate_passes %></td>
+					<td data-title='Attempted receptions' class='numeric'><%= @match.attempted_receptions %></td>
+					<td data-title='Good receptions' class='numeric'><%= @match.good_receptions %></td>
+					<td data-title='Human player skill' class='numeric'><%= @match.human_player_skill %></td>
+					<td data-title='Shots blocked, goalie' class='numeric'><%= @match.goalie_blocked %></td>
+					<td data-title='Shots not blocked, goalie' class='numeric'><%= @match.goalie_failed %></td>
+					<td data-title='Goal blocked, goalie' class='numeric'><%= @match.goalie_block_area %></td>
+					<td data-title='Pure defense?'><%= @match.pure_defense %></td>
+					<td data-title='Passes interrupted' class='numeric'><%= @match.def_passes_interrupted %></td>
+					<td data-title='Defensive time drain' class='numeric'><%= @match.def_time_drain %></td>
+					<td data-title='Speed' class='numeric'><%= @match.speed %></td>
+					<td data-title='Driver skill' class='numeric'><%= @match.driver_skill %></td>
+					<td data-title='No show?'><%= @match.no_show %></td>
+					<td data-title='Dead?'><%= @match.dead %></td>
+					<td data-title='Created at' class='numeric'><%= @match.created_at %></td>
+  			</tr>
+  		</tbody>
+  	</table>
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
+<div class="row center">
+  <%= link_to "New match", newmatch_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<br>
+<hr>
+
+<div class="row notes">
+	<% if @match.notes.any? %>
+		<h3>Notes</h3>
+		<ol class='notes'>
+			<%= render @notes %>
+		</ol>
+	<% end %>
+
+	<%= form_for(@note) do |f| %>
+		<%= render 'shared/error_messages_match', object: f.object %>
+
+		<% @match_url = request.fullpath %>
+		<%= f.hidden_field 'match_url', value: @match_url %>
+
+		<div class="field">
+			<%= f.text_area :content, placeholder: "Compose new note" %>
 		</div>
 
-		<h3>Notes</h3>
-		<ul>
-			<%= render @notes %>
-		</ul>
-
-		<%= line_chart  %>
+		<%= f.submit "Submit", class: 'btn btn-large btn-primary' %>
+	<% end %>
+</div>
