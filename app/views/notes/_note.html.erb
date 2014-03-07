@@ -4,7 +4,7 @@
 	</span>
 	<small>
 		<span class="timestamp">
-			<%= note.created_at %>
+			Created at <%= note.created_at %> by <%= User.find_by(email: note.match.scouter_email).name %>
 		</span>
 	</small>
 </li>
