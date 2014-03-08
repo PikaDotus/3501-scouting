@@ -46,6 +46,19 @@
 			<%= column_chart @matches.group("id").sum("top_missed_tele"), height: "300px" %>
 		</div>
 	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="col-md-6">
+			<h4>Truss made tele</h4>
+			<%= column_chart @matches.group("id").sum("truss_made"), height: "300px" %>
+		</div>
+		<div class="col-md-6" style='margin-bottom:25px;'>
+			<h4>Truss missed tele</h4>
+			<%= column_chart @matches.group("id").sum("truss_missed"), height: "300px" %>
+		</div>
+	</div>
 <% end %>
 
 <br><br><br>
