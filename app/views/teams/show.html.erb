@@ -24,10 +24,10 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<%= bar_chart @matches.group("match_number").sum("top_made_auton"), height: "300px" %>
+		<%= bar_chart @matches.group("id").sum("top_made_auton"), height: "300px" %>
 	</div>
 	<div class="col-md-6">
-		<%= bar_chart @matches.group("match_number").sum("top_missed_auton"), height: "300px" %>
+		<%= bar_chart @matches.group("id").sum("top_missed_auton"), height: "300px" %>
 	</div>
 </div>
 
@@ -35,10 +35,10 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<%= bar_chart @matches.group("match_number").sum("top_made_tele"), height: "300px" %>
+		<%= bar_chart @matches.group("id").sum("top_made_tele"), height: "300px" %>
 	</div>
 	<div class="col-md-6">
-		<%= bar_chart @matches.group("match_number").sum("top_missed_tele"), height: "300px" %>
+		<%= bar_chart @matches.group("id").sum("top_missed_tele"), height: "300px" %>
 	</div>
 </div>
 <br><br><br>
