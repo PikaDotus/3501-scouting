@@ -35,10 +35,10 @@ class Match < ActiveRecord::Base
 		self.attempted_passes ||= 0
 		self.accurate_passes ||= 0
 		self.attempted_receptions ||= 0
+		self.good_receptions ||= 0
 		if self.attempted_receptions - self.good_receptions < 0
 			self.attempted_receptions = self.good_receptions
 		end
-		self.good_receptions ||= 0
 		self.pass_type ||= 0
 		self.receive_type ||= 0
 		self.ball_control_type ||= 0

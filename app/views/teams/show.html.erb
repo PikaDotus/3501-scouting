@@ -25,16 +25,16 @@
 <% if @team.matches.any? %>
 	<div class="row">
 		<div class="col-md-3">
-			<h4> Speed: <%= @matches.average('speed').to_f.truncate %> </h4>
+			<h4> Speed: <%= @matches.where('speed' > '0') %> </h4>
 		</div>
 		<div class="col-md-3">
-			<h4> Top auton: <%= @matches.average('top_made_auton').to_f.truncate %> </h4>
+			<h4> Top auton: <%= @matches.where('top_made_auton' > '0').average('top_made_auton') %> </h4>
 		</div>
 		<div class="col-md-3">
-			<h4> Top tele: <%= @matches.average('top_made_tele').to_f.truncate %> </h4>
+			<h4> Top tele: <%= @matches.where('top_made_tele' > '0').average('top_made_tele') %> </h4>
 		</div>
 		<div class="col-md-3">
-			<h4> Pickup speed: <%= @matches.average('moving_pickup').to_f.truncate %> </h4>
+			<h4> Pickup speed: <%= @matches.where('moving_pickup' > '0').average('moving_pickup') %> </h4>
 		</div>
 	</div>
 
