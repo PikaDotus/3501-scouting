@@ -50,6 +50,14 @@
 				{name: "Truss missed", data: @matches.map{|t| [t.id, t.truss_missed] } } ],
 				height: '300px', stacked: true %>
 	</div>
+	<div class="col-md-4">
+		<h4>Receptions</h4>
+		<%= area_chart [
+				{name: "Receptions made", data: @matches.map{|t| [t.id, t.good_receptions] } },
+				{name: "Receptions missed", data: @matches.map{|t| [t.id, t.attempted_receptions - t.good_receptions] } } ],
+				height: '300px', stacked: true %>
+	</div>
+</div>
 <% end %>
 
 <br><br><br>
