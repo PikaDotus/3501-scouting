@@ -27,15 +27,15 @@
 		<div class="col-md-6">
 			<h4>Auton scoring</h4>
 			<%= area_chart [
-			  {name: "Top made", data: @matches.map{|t| [t.id, t.top_made_auton] } },
-			  {name: "Top missed", data: @matches.map{|t| [t.id, t.top_missed_auton] } } ],
+			  {name: "Top made", data: @matches.map{|t| [t.match_number, t.top_made_auton] } },
+			  {name: "Top missed", data: @matches.map{|t| [t.match_number, t.top_missed_auton] } } ],
 			  height: '300px', stacked: true %>
 		</div>
 		<div class="col-md-6">
 			<h4>Tele scoring</h4>
 			<%= area_chart [
-				{name: "Top made", data: @matches.map{|t| [t.id, t.top_made_tele] } },
-				{name: "Top missed", data: @matches.map{|t| [t.id, t.top_missed_tele] } } ],
+				{name: "Top made", data: @matches.map{|t| [t.match_number, t.top_made_tele] } },
+				{name: "Top missed", data: @matches.map{|t| [t.match_number, t.top_missed_tele] } } ],
 				height: '300px', stacked: true %>
 		</div>
 	</div>
@@ -46,15 +46,15 @@
 		<div class="col-md-6">
 			<h4>Truss scoring</h4>
 			<%= area_chart [
-				{name: "Truss made", data: @matches.map{|t| [t.id, t.truss_made] } },
-				{name: "Truss missed", data: @matches.map{|t| [t.id, t.truss_missed] } } ],
+				{name: "Truss made", data: @matches.map{|t| [t.match_number, t.truss_made] } },
+				{name: "Truss missed", data: @matches.map{|t| [t.match_number, t.truss_missed] } } ],
 				height: '300px', stacked: true %>
 	</div>
 	<div class="col-md-6">
 		<h4>Receptions</h4>
 		<%= area_chart [
-				{name: "Receptions made", data: @matches.map{|t| [t.id, t.good_receptions] } },
-				{name: "Receptions missed", data: @matches.map{|t| [t.id, t.attempted_receptions - t.good_receptions] } } ],
+				{name: "Receptions made", data: @matches.map{|t| [t.match_number, t.good_receptions] } },
+				{name: "Receptions missed", data: @matches.map{|t| [t.match_number, t.attempted_receptions - t.good_receptions] } } ],
 				height: '300px', stacked: true %>
 	</div>
 </div>
