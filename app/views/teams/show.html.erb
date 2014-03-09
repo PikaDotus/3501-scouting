@@ -24,6 +24,23 @@
 
 <% if @team.matches.any? %>
 	<div class="row">
+		<div class="col-md-3">
+			Speed: <%= @matches.average('speed') %>
+		</div>
+		<div class="col-md-3">
+			Top auton: <%= @matches.average('top_made_auton') %>
+		</div>
+		<div class="col-md-3">
+			Top tele: <%= @matches.average('top_made_tele') %>
+		</div>
+		<div class="col-md-3">
+			Pickup speed: <%= @matches.average('moving_pickup') %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="row">
 		<div class="col-md-6">
 			<h4>Auton scoring</h4>
 			<%= area_chart [
