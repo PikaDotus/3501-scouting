@@ -23,7 +23,7 @@
 <br>
 
 <% if @team.matches.any? %>
-	<div class="row">
+	<div class="row center">
 		<div class="col-md-3">
 			<h4> Speed: <%= @matches.where("speed > ?", 0).average('speed') %> </h4>
 		</div>
