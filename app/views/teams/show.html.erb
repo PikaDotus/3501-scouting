@@ -19,20 +19,18 @@
 	</div>
 </div>
 
-
-
 <hr>
 <br>
 
 <% if @matches.any? %>
 	<div class="row center">
 		<div class="col-md-2">
-			<% if @matches.where("top_made_auton > ?", 0).average('top_made_auton') %>
+			<% if @matches.average('top_made_auton') %>
 				<h3> Top auton: <%= @matches.average('top_made_auton').round(1) %> </h3>
 			<% end %>
 		</div>
 		<div class="col-md-2">
-			<% if @matches.where("top_made_tele > ?", 0).average('top_made_tele') %>
+			<% if @matches.average('top_made_tele') %>
 				<h3> Top tele: <%= @matches.average('top_made_tele').round(1) %> </h3>
 			<% end %>
 		</div>
@@ -76,7 +74,7 @@
 
 	<br>
 
-	<div class="row", style="margin-bottom:90px;">
+	<div class="row" style="margin-bottom:20px;">
 		<div class="col-md-6">
 			<h4>Truss scoring</h4>
 			<%= area_chart [
@@ -92,6 +90,19 @@
 				height: '300px', stacked: true %>
 	</div>
 </div>
-<% end %>
 
-<br><br><br>
+<div class="row" style="margin-bottom:90px;">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<% if @matches.any? %>
+			<% @matches.each do |match| %>
+				<% if match.notes.any? %>
+					<%= render match.notes %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<% end %>

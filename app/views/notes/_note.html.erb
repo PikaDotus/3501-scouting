@@ -3,7 +3,7 @@
 		<%= note.content %>
 	</span>
 	<small>
-		<span class="timestamp">
+		<span class="timestamp pull-right">
 			Created at <%= note.created_at %> by <%= User.find_by(email: note.match.scouter_email).name %>
 		</span>
 	</small>
