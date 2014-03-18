@@ -5,8 +5,8 @@
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-6">
-		<% if @team.matches.any? %>
-			<h3>Matches (<%= @team.matches.count %>)</h3>
+		<% if @matches.any? %>
+			<h3>Matches (<%= @matches.count %>)</h3>
 			<ol class="matches">
 				<%= render @matches %>
 			</ol>
@@ -19,25 +19,37 @@
 	</div>
 </div>
 
+
+
 <hr>
 <br>
 
-<% if @team.matches.any? %>
+<% if @matches.any? %>
 	<div class="row center">
 		<div class="col-md-2">
-			<h4> Top auton: <%= @matches.average('top_made_auton') %> </h4>
+			<% if @matches.where("top_made_auton > ?", 0).average('top_made_auton') %>
+				<h3> Top auton: <%= @matches.average('top_made_auton').round(1) %> </h3>
+			<% end %>
 		</div>
 		<div class="col-md-2">
-			<h4> Top tele: <%= @matches.average('top_made_tele') %> </h4>
+			<% if @matches.where("top_made_tele > ?", 0).average('top_made_tele') %>
+				<h3> Top tele: <%= @matches.average('top_made_tele').round(1) %> </h3>
+			<% end %>
 		</div>
 		<div class="col-md-2">
-			<h4> Speed: <%= @matches.where("speed > ?", 0).average('speed') %> </h4>
+			<% if @matches.where("speed > ?", 0).average('speed') %>
+				<h3> Speed: <%= @matches.where("speed > ?", 0).average('speed').round(1) %> </h3>
+			<% end %>
 		</div>
 		<div class="col-md-2">
-			<h4>Pickup speed: <%= @matches.where("moving_pickup > ?", 0).average('moving_pickup') %></h4>
+			<% if @matches.where("moving_pickup > ?", 0).average('moving_pickup') %>
+				<h3>Pickup speed: <%= @matches.where("moving_pickup > ?", 0).average('moving_pickup').round(1) %></h3>
+			<% end %>
 		</div>
 		<div class="col-md-2">
-			<h4>Driver skill: <%= @matches.where("driver_skill > ?", 0).average('driver_skill') %></h4>
+			<% if @matches.where("driver_skill > ?", 0).average('driver_skill') %>
+				<h3>Driver skill: <%= @matches.where("driver_skill > ?", 0).average('driver_skill').round(1) %></h3>
+			<% end %>
 		</div>
 		<div class="col-md-2">
 		</div>

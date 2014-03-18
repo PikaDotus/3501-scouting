@@ -273,6 +273,7 @@ DEPENDENCIES
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   jquery-ui-rails
+  nokogiri
   pg (= 0.15.1)
   rails (= 4.0.3)
   rails_12factor (= 0.0.2)
