@@ -1,7 +1,10 @@
-== Setup
+Setup
+----
 
-* Dependencies: `rvm`, `RubyGems`, `bundle`
+- Dependencies: `rvm`, `RubyGems`, `bundle`
 
-* Sqlite3 database for local development
+- Sqlite3 database for local development
 
-* Run tests via `guard`
+- Run tests via `guard`
+
+- Setup via `bundle install`
