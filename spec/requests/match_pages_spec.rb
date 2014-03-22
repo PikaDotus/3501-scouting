@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "MatchPages" do
 
+=begin
+
 	subject { page }
 
 	describe 'display page' do
@@ -34,4 +36,7 @@ describe "MatchPages" do
       end
     end
   end
+
+=end
+
 end

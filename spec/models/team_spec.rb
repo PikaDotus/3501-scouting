@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Team do
+
+=begin
+
 	before do
 		@team = Team.new(number: 3501, pic_url: 'http://upload.wikimedia.org/wikipedia/en/5/5c/C-3PO_droid.png')
 	end
@@ -31,4 +34,7 @@ describe Team do
 			expect(@team.matches.to_a).to eq [newer_match, older_match]
 		end
 	end
+
+=end
+
 end

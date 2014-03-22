@@ -270,6 +270,15 @@ div.btn-group-justified {
   margin-left: 10px;
 }
 
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+
 /* match page show style */
 
 div.notes {
@@ -294,3 +303,14 @@ div.notes {
   float: left;
   margin-right: 10px;
 }
+
+
+
+
+
+
+
+
+
+input.qtyplus { width:25px; height:25px;}
+input.qtyminus { width:25px; height:25px;}

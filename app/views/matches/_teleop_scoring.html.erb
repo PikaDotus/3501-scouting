@@ -1,0 +1,15 @@
+<div class="col-md-4 separate">
+	<h3>Teleop scoring (other)</h3>
+
+	<%= f.label :catch_made, "Catches made" %>
+	<%= f.number_field :catch_made, step: 1, min: 0, max: 30 %>
+	<br>
+	<%= f.label :catch_missed, "Catches missed" %>
+	<%= f.number_field :catch_missed, step: 1, min: 0, max: 30 %>
+	<br>
+	<%= f.label :truss_made, "Truss shots made" %>
+	<%= f.number_field :truss_made, step: 1, min: 0, max: 30 %>
+	<br>
+	<%= f.label :truss_missed, "Truss shots missed" %>
+	<%= f.number_field :truss_missed, step: 1, min: 0, max: 30 %>
+</div>

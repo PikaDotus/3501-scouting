@@ -1,0 +1,21 @@
+<div class='seperate'>
+	<h3>Auton</h3>
+
+	<%= f.label :hot_auton, "Scored in hot goal" %>
+	<%= f.check_box :hot_auton %>
+	<br>
+	<%= f.label :drive_auton, "Drive points" %>
+	<%= f.check_box :drive_auton %>
+	<br>
+	<%= f.label :top_made_auton, "Top made" %>
+	<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3 %>
+	<br>
+	<%= f.label :top_missed_auton, "Top failed" %>
+	<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3 %>
+	<br>
+	<%= f.label :low_made_auton, "Low made" %>
+	<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3 %>
+	<br>
+	<%= f.label :low_missed_auton, "Low failed" %>
+	<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3 %>
+</div>

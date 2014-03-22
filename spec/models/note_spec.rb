@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Note do
 
+=begin
+
 	let(:match) { FactoryGirl.create(:match) }
 	before { @note = match.notes.build(content: "lorem ipsum", votes: 0) }
 
@@ -29,4 +31,7 @@ describe Note do
 		before { @note.content = 'a' * 1001 }
 		it { should_not be_valid }
 	end
+
+=end
+
 end
