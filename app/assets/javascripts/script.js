@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
         e.preventDefault();
         // Get the field name
         fieldName = $(this).attr('field');
+        fieldName = '"' + fieldName + '"';
         // Get its current value
         var currentVal = parseInt($('input[name='+fieldName+']').val());
         // If is not undefined
@@ -22,6 +23,7 @@ jQuery(document).ready(function(){
         e.preventDefault();
         // Get the field name
         fieldName = $(this).attr('field');
+        fieldName = '"' + fieldName + '"';
         // Get its current value
         var currentVal = parseInt($('input[name='+fieldName+']').val());
         // If it isn't undefined or its greater than 0

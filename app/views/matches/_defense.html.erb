@@ -7,9 +7,9 @@
 			<%= f.number_field :goalie_blocked, step: 1, min: 0, max: 100 %>
 			<br>
 			<%= f.label :goalie_failed, "Shots allowed – goalie" %>
-			<input type="button" value="–" field="match_goalie_failed" class="qtyminus"/>
+			<input type="button" value="–" field="match[goalie_failed]" class="qtyminus"/>
 			<%= f.number_field :goalie_failed, step: 1, min: 0, max: 100 %>
-			<input type="button" value="+" field="match_goalie_failed" class="qtyplus"/>
+			<input type="button" value="+" field="match[goalie_failed]" class="qtyplus"/>
 		</div>
 	</div>
 
