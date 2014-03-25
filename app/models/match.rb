@@ -12,13 +12,6 @@ class Match < ActiveRecord::Base
 
 	def init
     self.team_number ||= 0
-		self.red_1 ||= 0
-		self.red_2 ||= 0
-		self.red_3 ||= 0
-		self.blue_1 ||= 0
-		self.blue_2 ||= 0
-		self.blue_3 ||= 0
-		self.final_score ||= 0
 		self.scouter_email ||= 0
 		self.top_made_tele ||= 0
 		self.top_missed_tele ||= 0
@@ -32,13 +25,6 @@ class Match < ActiveRecord::Base
 		self.truss_made ||= 0
 		self.truss_missed ||= 0
 		self.moving_pickup ||= 0
-		self.attempted_passes ||= 0
-		self.accurate_passes ||= 0
-		self.attempted_receptions ||= 0
-		self.good_receptions ||= 0
-		if self.attempted_receptions - self.good_receptions < 0
-			self.attempted_receptions = self.good_receptions
-		end
 		self.pass_type ||= 0
 		self.receive_type ||= 0
 		self.ball_control_type ||= 0
@@ -47,17 +33,15 @@ class Match < ActiveRecord::Base
 		self.goalie_failed ||= 0
 		self.goalie_block_area ||= 0
 		self.cims ||= 0
-		self.def_passes_interrupted ||= 0
-		self.def_time_drain ||= 0
 		self.speed ||= 0
 		self.driver_skill ||= 0
 		self.drive_train_type ||= 0
-		self.team_compromise ||= 0
-		self.team_follow ||= 0
-		self.team_cooperate ||= 0
 		self.match_type ||= 0
-		self.hold_ball ||= 0
 		self.possessions ||= 0
 		self.team_id = self.team_number
+		self.foul_pts ||= 0
+		self.ball_control ||= 0
+		self.shoot_to_hp ||= 0
+		self.defense ||= 0
   end
 end
