@@ -6,6 +6,9 @@ class TeamsController < ApplicationController
   def show
   	@team = Team.find(params[:id])
   	@matches = @team.matches
+    gon.push({
+      matches: @matches
+      })
   end
 
   def new

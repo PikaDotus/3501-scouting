@@ -1,4 +1,4 @@
-<body onload="createChart();">
+<body onload="createRadarChart();createLineChart();">
 
 <% provide(:title, "Team #{@team.number}") %>
 
@@ -56,6 +56,7 @@
 	</div>
 
 	<canvas id="myChart" width="400" height="400"></canvas>
+	<canvas id="lineChart" width="600" height="400"></canvas>
 
 	<div class="row" style="margin-bottom:90px;">
 		<div class="col-md-1"></div>

@@ -16,6 +16,7 @@ gem 'thin'
 #gem 'friendly_id', '~> 5.0.0'
 #gem 'pg', '0.15.1'
 gem 'nokogiri'
+gem 'gon'
 
 # some javascript stuff
 gem 'execjs'
