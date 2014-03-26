@@ -16,6 +16,7 @@ function getAllInRange(matchAttribute) {
 
 	$(gon.matches).each(function(i, val) {
 		ret.push(val[matchAttribute]);
+		console.log(matchAttribute + ": " + val[matchAttribute]);
 	});
 
 	return ret.reverse();
@@ -25,8 +26,10 @@ function createLinePlot(matchAttributeMade, matchAttributeMissed) {
 	var made = getAllInRange(matchAttributeMade);
 	var missed = getAllInRange(matchAttributeMissed);
 
+	console.log(missed);
+
 	var data = {
-		labels : range(1, made.length),
+		labels : range(1, made.length), // match # instead
 		datasets : [
 			{
 				fillColor : "rgba(151,187,205,0.5)",
@@ -47,7 +50,9 @@ function createLinePlot(matchAttributeMade, matchAttributeMissed) {
 
 	var options = {
 		scaleFontFamily	: "'Helvetica'",
-		scaleFontColor	: "#ffffff"
+		scaleFontColor : "#ffffff",
+		scaleShowGridLines : false,
+		scaleLineColor : "rgba(255, 255, 255, 0.4)"
 	}
 
 	var context = $("#" + matchAttributeMade + "_chart").get(0).getContext('2d');
