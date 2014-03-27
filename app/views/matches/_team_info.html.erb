@@ -1,16 +1,18 @@
 <%= f.hidden_field :scouter_email, value: current_user.email %>
 
 <div class="separate">
+	<h3>Team info</h3>
+
 	<%= f.label :team_number, class: 'large-label' %>
 	<%= f.number_field :team_number, step: 1, min: 1, max: 6000 %>
 </div>
 
-<div class="separate">
+<div class="separate" style="margin-top:40px;">
 	<%= f.label :match_number %>
 	<%= f.number_field :match_number, step: 1, min: 1, max: 200 %>
 </div>
 
-<div>
+<div style="margin-top:50px;">
 	<%= f.label :match_type, "Match type", class: 'separate' %>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 		<div class="btn-group">

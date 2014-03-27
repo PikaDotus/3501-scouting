@@ -16,7 +16,6 @@ function getAllInRange(matchAttribute) {
 
 	$(gon.matches).each(function(i, val) {
 		ret.push(val[matchAttribute]);
-		console.log(matchAttribute + ": " + val[matchAttribute]);
 	});
 
 	return ret.reverse();
@@ -25,8 +24,6 @@ function getAllInRange(matchAttribute) {
 function createLinePlot(matchAttributeMade, matchAttributeMissed) {
 	var made = getAllInRange(matchAttributeMade);
 	var missed = getAllInRange(matchAttributeMissed);
-
-	console.log(missed);
 
 	var data = {
 		labels : range(1, made.length), // match # instead

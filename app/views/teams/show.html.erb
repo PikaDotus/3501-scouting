@@ -1,4 +1,4 @@
-<body onload="createLinePlot('top_made_auton', 'top_missed_auton');createLinePlot('top_made_tele, top_missed_tele');">
+<body onload="createLinePlot('top_made_auton', 'top_missed_auton');createLinePlot('possessions');createLinePlot('foul_pts');createLinePlot('ball_control');">
 
 <% provide(:title, "Team #{@team.number}") %>
 
@@ -59,7 +59,16 @@
 			<canvas id="top_made_auton_chart" width="500" height="400"></canvas>
 		</div>
 		<div class="col-md-6">
-			<canvas id="top_made_tele_chart" width="500" height="400"></canvas>
+			<canvas id="possessions_chart" width="500" height="400"></canvas>
+		</div>
+	</div>
+
+	<div class="center row" style="margin-bottom:30px;margin-top:30px;">
+		<div class="col-md-6">
+			<canvas id="foul_pts_chart" width="500" height="400"></canvas>
+		</div>
+		<div class="col-md-6">
+			<canvas id="ball_control_chart" width="500" height="400"></canvas>
 		</div>
 	</div>
 

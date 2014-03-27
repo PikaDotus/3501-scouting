@@ -6,14 +6,14 @@ jQuery(document).ready(function(){
         // Get the field name
         fieldName = $(this).attr('field');
         fieldName = '"' + fieldName + '"';
-        // Get its current value
+
         var currentVal = parseInt($('input[name='+fieldName+']').val());
-        // If is not undefined
+
         if (!isNaN(currentVal)) {
             // Increment
             $('input[name='+fieldName+']').val(currentVal + 1);
         } else {
-            // Otherwise put a 0 there
+            // Otherwise put 0
             $('input[name='+fieldName+']').val(0);
         }
     });
@@ -24,14 +24,14 @@ jQuery(document).ready(function(){
         // Get the field name
         fieldName = $(this).attr('field');
         fieldName = '"' + fieldName + '"';
-        // Get its current value
+
         var currentVal = parseInt($('input[name='+fieldName+']').val());
-        // If it isn't undefined or its greater than 0
+
         if (!isNaN(currentVal) && currentVal > 0) {
             // Decrement one
             $('input[name='+fieldName+']').val(currentVal - 1);
         } else {
-            // Otherwise put a 0 there
+            // Otherwise put 0
             $('input[name='+fieldName+']').val(0);
         }
     });

@@ -25,18 +25,23 @@
 		  <div class="tab-content">
 				<div class="tab-pane active" id='match_start'>
 					<div class="row">
-						<div class="col-md-4" style="margin-top:20px;">
+						<div class="col-md-6" style="margin-top:20px;">
 							<%= render 'matches/team_info', f: f %>
 						</div>
-						<div class="col-md-4 center">
+						<div class="col-md-6 center">
 							<%= render 'matches/auton', f: f %>
 						</div>
-						<div class="col-md-4"></div>
 					</div>
 				</div>
 				<div class="tab-pane" id='interaction'>
-					<%= render 'matches/tele_interaction', f: f %>
-					<%= render 'matches/movement', f: f %>
+					<div class="row">
+						<div class="col-md-6">
+							<%= render 'matches/tele_interaction', f: f %>
+						</div>
+						<div class="col-md-6">
+							<%= render 'matches/movement', f: f %>
+						</div>
+					</div>
 				</div>
 				<div class="tab-pane" id='scoring'>
 					<%= render 'matches/teleop_scoring', f: f %>

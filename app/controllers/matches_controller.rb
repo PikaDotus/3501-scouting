@@ -12,6 +12,10 @@ class MatchesController < ApplicationController
   end
 
   def new
+  	if not current_user
+  		store_location
+  		redirect_to signin_url, notice: 'Please sign in.'
+  	end
   	@match = Match.new
   end
 
