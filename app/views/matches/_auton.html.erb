@@ -8,14 +8,22 @@
 	<%= f.check_box :drive_auton %>
 	<br>
 	<%= f.label :top_made_auton, "Top made" %>
+	<input type="button" value="–" field="match[top_made_auton]" class="qtyminus"/>
 	<%= f.number_field :top_made_auton, step: 1, min: 0, max: 3 %>
+	<input type="button" value="+" field="match[top_made_auton]" class="qtyplus"/>
 	<br>
 	<%= f.label :top_missed_auton, "Top failed" %>
+	<input type="button" value="–" field="match[top_missed_auton]" class="qtyminus"/>
 	<%= f.number_field :top_missed_auton, step: 1, min: 0, max: 3 %>
+	<input type="button" value="+" field="match[top_missed_auton]" class="qtyplus"/>
 	<br>
 	<%= f.label :low_made_auton, "Low made" %>
+	<input type="button" value="–" field="match[low_made_auton]" class="qtyminus"/>
 	<%= f.number_field :low_made_auton, step: 1, min: 0, max: 3 %>
+	<input type="button" value="+" field="match[low_made_auton]" class="qtyplus"/>
 	<br>
 	<%= f.label :low_missed_auton, "Low failed" %>
+	<input type="button" value="–" field="match[low_missed_auton]" class="qtyminus"/>
 	<%= f.number_field :low_missed_auton, step: 1, min: 0, max: 3 %>
+	<input type="button" value="+" field="match[low_missed_auton]" class="qtyplus"/>
 </div>

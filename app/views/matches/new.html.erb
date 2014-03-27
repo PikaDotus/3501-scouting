@@ -44,8 +44,14 @@
 					</div>
 				</div>
 				<div class="tab-pane" id='scoring'>
-					<%= render 'matches/teleop_scoring', f: f %>
-					<%= render 'matches/teleop_scoring_shots', f: f %>
+					<div class="row">
+						<div class="col-md-6">
+							<%= render 'matches/teleop_scoring', f: f %>
+						</div>
+						<div class="col-md-6">
+							<%= render 'matches/teleop_scoring_shots', f: f %>
+						</div>
+					</div>
 				</div>
 				<div class="tab-pane" id='defense'>
 					<%= render 'matches/defense', f: f %>

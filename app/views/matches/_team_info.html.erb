@@ -1,15 +1,19 @@
+<h3>Team info</h3>
+
 <%= f.hidden_field :scouter_email, value: current_user.email %>
 
 <div class="separate">
-	<h3>Team info</h3>
-
-	<%= f.label :team_number, class: 'large-label' %>
+	<%= f.label :team_number %>
+	<input type="button" value="–" field="match[team_number]" class="qtyminus"/>
 	<%= f.number_field :team_number, step: 1, min: 1, max: 6000 %>
+	<input type="button" value="+" field="match[team_number]" class="qtyplus"/>
 </div>
 
 <div class="separate" style="margin-top:40px;">
 	<%= f.label :match_number %>
+	<input type="button" value="–" field="match[match_number]" class="qtyminus"/>
 	<%= f.number_field :match_number, step: 1, min: 1, max: 200 %>
+	<input type="button" value="+" field="match[match_number]" class="qtyplus"/>
 </div>
 
 <div style="margin-top:50px;">
