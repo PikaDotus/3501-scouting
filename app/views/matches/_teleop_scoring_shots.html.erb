@@ -2,11 +2,17 @@
 	<h3>Teleop scoring (shots)</h3>
 
 	<%= f.label :top_made_tele, "Top scored" %>
+	<input type="button" value="–" field="match[top_made_tele]" class="qtyminus"/>
 	<%= f.number_field :top_made_tele, step: 1, min: 0, max: 30 %>
+	<input type="button" value="+" field="match[top_made_tele]" class="qtyplus"/>
 	<br>
 	<%= f.label :top_missed_tele, "Top missed" %>
+	<input type="button" value="–" field="match[top_missed_tele]" class="qtyminus"/>
 	<%= f.number_field :top_missed_tele, step: 1, min: 0, max: 30 %>
+	<input type="button" value="+" field="match[top_missed_tele]" class="qtyplus"/>
 	<br>
 	<%= f.label :low_made_tele, "Low scored" %>
+	<input type="button" value="–" field="match[low_made_tele]" class="qtyminus"/>
 	<%= f.number_field :low_made_tele, step: 1, min: 0, max: 30 %>
+	<input type="button" value="+" field="match[low_made_tele]" class="qtyplus"/>
 </div>
