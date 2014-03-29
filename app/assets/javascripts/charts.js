@@ -49,7 +49,8 @@ function createLinePlot(matchAttributeMade, matchAttributeMissed) {
 		scaleFontFamily	: "'Helvetica'",
 		scaleFontColor : "#ffffff",
 		scaleShowGridLines : false,
-		scaleLineColor : "rgba(255, 255, 255, 0.4)"
+		scaleLineColor : "rgba(255, 255, 255, 0.4)",
+		bezierCurve : false
 	}
 
 	var context = $("#" + matchAttributeMade + "_chart").get(0).getContext('2d');
