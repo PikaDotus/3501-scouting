@@ -21,8 +21,24 @@ class MatchesController < ApplicationController
 
   def create
   	@match = Match.new(match_params)
+=begin
+  	no_average_stats = ["id", "team_number", "scouter_email", "hot_auton", "drive_auton"
+  										, "pass_type", "receive_type", "ball_control_type", "cims"
+  										, "pure_defense", "drive_train_type", "no_show", "dead"
+  										, "created_at", "updated_at", "team_id", "match_type", "match_number"
+  										, "foul_pts"]
+
+  	if existing_match = Match.find(params[@match.match_number]).find(params[@match.match_type])
+  		stats = existing_match.attributes
+  		stats.each do |stat, cur_val|
+  			unless no_average_stats.include? stat
+  				@match[stat] += cur_val
+  				@match[stat] /= 2
+  			end
+  		end
+  	end
+=end
   	if @match.save
-  		#Match.find(params[@match.id]).notes.build(note_params)
   		flash[:success] = 'Match saved!'
   		redirect_to @match
   	else

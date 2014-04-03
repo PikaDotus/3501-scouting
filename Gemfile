@@ -17,6 +17,7 @@ gem 'thin'
 #gem 'pg', '0.15.1'
 gem 'nokogiri'
 gem 'gon'
+gem 'binding_of_caller'
 
 # some javascript stuff
 gem 'execjs'

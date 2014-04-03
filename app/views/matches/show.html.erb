@@ -63,12 +63,6 @@
   				<th class='numeric'>Match Type</th>
   				<th class='numeric'>Ball hold</th>
   				<th class='numeric'>Possessions</th>
-  				<th class='numeric'>Red 1</th>
-  				<th class='numeric'>Red 2</th>
-  				<th class='numeric'>Red 3</th>
-  				<th class='numeric'>Blue 1</th>
-  				<th class='numeric'>Blue 2</th>
-  				<th class='numeric'>Blue 3</th>
   				<th>Scouter</th>
   				<th clas='numeric'>Top made tele</th>
   				<th clas='numeric'>Top missed tele</th>
@@ -84,17 +78,12 @@
 					<th class='numeric'>Trusses made</th>
 					<th class='numeric'>Trusses missed</th>
 					<th class='numeric'>Moving pickup speed</th>
-					<th class='numeric'>Attempted passes</th>
-					<th class='numeric'>Accurate passes</th>
-					<th class='numeric'>Attempted receptions</th>
-					<th class='numeric'>Good receptions</th>
 					<th class='numeric'>Human player skill</th>
 					<th class='numeric'>Shots blocked, goalie</th>
 					<th class='numeric'>Shots not blocked, goalie</th>
 					<th class='numeric'>Goal blocked, goalie</th>
 					<th>Pure defense?</th>
-					<th class='numeric'>Passes interrupted</th>
-					<th class='numeric'>Defensive time drain</th>
+					<th class='numeric'>Defensive skill</th>
 					<th class='numeric'>Speed</th>
 					<th class='numeric'>Driver skill</th>
 					<th>No show?</th>
@@ -106,14 +95,8 @@
   			<tr>
   				<td data-title='Team number' class='numeric'><%= @match.team_number %></td>
   				<td data-title='Match type' class='numeric'><%= @match.match_type %></td>
-  				<td data-title='Ball hold' class='numeric'><%= @match.hold_ball %></td>
+  				<td data-title='Ball hold' class='numeric'><%= @match.ball_control %></td>
   				<td data-title='Possessions' class='numeric'><%= @match.possessions %></td>
-					<td data-title='Red 1' class='numeric'><%= @match.red_1 %></td>
-					<td data-title='Red 2' class='numeric'><%= @match.red_2 %></td>
-					<td data-title='Red 3' class='numeric'><%= @match.red_3 %></td>
-					<td data-title='Blue 1' class='numeric'><%= @match.blue_1 %></td>
-					<td data-title='Blue 2' class='numeric'><%= @match.blue_2 %></td>
-					<td data-title='Blue 3' class='numeric'><%= @match.blue_3 %></td>
 					<td data-title='Scouter'><%= (User.find_by email: @match.scouter_email).name %></td>
 					<td data-title='Top made tele' class='numeric'><%= @match.top_made_tele %></td>
 					<td data-title='Top missed tele' class='numeric'><%= @match.top_missed_tele %></td>
@@ -129,17 +112,12 @@
 					<td data-title='Trusses made' class='numeric'><%= @match.truss_made %></td>
 					<td data-title='Trusses missed' class='numeric'><%= @match.truss_missed %></td>
 					<td data-title='Moving pickup speed' class='numeric'><%= @match.moving_pickup %></td>
-					<td data-title='Attempted passes' class='numeric'><%= @match.attempted_passes %></td>
-					<td data-title='Accurate passes' class='numeric'><%= @match.accurate_passes %></td>
-					<td data-title='Attempted receptions' class='numeric'><%= @match.attempted_receptions %></td>
-					<td data-title='Good receptions' class='numeric'><%= @match.good_receptions %></td>
 					<td data-title='Human player skill' class='numeric'><%= @match.human_player_skill %></td>
 					<td data-title='Shots blocked, goalie' class='numeric'><%= @match.goalie_blocked %></td>
 					<td data-title='Shots not blocked, goalie' class='numeric'><%= @match.goalie_failed %></td>
 					<td data-title='Goal blocked, goalie' class='numeric'><%= @match.goalie_block_area %></td>
 					<td data-title='Pure defense?'><%= @match.pure_defense %></td>
-					<td data-title='Passes interrupted' class='numeric'><%= @match.def_passes_interrupted %></td>
-					<td data-title='Defensive time drain' class='numeric'><%= @match.def_time_drain %></td>
+					<td data-title='Defensive skill' class='numeric'><%= @match.defense %></td>
 					<td data-title='Speed' class='numeric'><%= @match.speed %></td>
 					<td data-title='Driver skill' class='numeric'><%= @match.driver_skill %></td>
 					<td data-title='No show?'><%= @match.no_show %></td>
@@ -186,7 +164,7 @@
 		<div class="col-md-3"></div>
 	</div>
 
-	<div class="row">
+	<div class="row" style="margin-bottom:80px;">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<%= f.submit "Submit", class: 'btn btn-large' %>
