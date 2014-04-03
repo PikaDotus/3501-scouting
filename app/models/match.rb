@@ -12,6 +12,7 @@ class Match < ActiveRecord::Base
 
 	def init
     self.team_number ||= 0
+    self.match_number ||= 0
 		self.scouter_email ||= 0
 		self.top_made_tele ||= 0
 		self.top_missed_tele ||= 0
