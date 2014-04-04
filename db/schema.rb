@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325033702) do
+ActiveRecord::Schema.define(version: 20140404200411) do
 
   create_table "matches", force: true do |t|
     t.integer  "team_number"
@@ -70,6 +70,11 @@ ActiveRecord::Schema.define(version: 20140325033702) do
     t.string   "pic_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "assist_score"
+    t.integer  "auto_score"
+    t.integer  "truss_and_catch_score"
+    t.integer  "teleop_score"
+    t.integer  "matches_played"
   end
 
   add_index "teams", ["number"], name: "index_teams_on_number"

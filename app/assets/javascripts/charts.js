@@ -1,5 +1,5 @@
 function range(start, count) {
-    if(arguments.length == 1) {
+    if (arguments.length == 1) {
         count = start;
         start = 0;
     }
