@@ -29,13 +29,13 @@
 <% if @matches.any? %>
 	<div class="row center">
 		<div class="col-md-2">
-			<% if @matches.average('top_made_auton') %>
-				<h3> Top auton: <%= @matches.average('top_made_auton').round(1) %> </h3>
+			<% if @team.auto_score %>
+				<h3> Auton score: <%= (@team.auto_score / @team.matches_played).round(1) %> </h3>
 			<% end %>
 		</div>
 		<div class="col-md-2">
-			<% if @matches.average('top_made_tele') %>
-				<h3> Top tele: <%= @matches.average('top_made_tele').round(1) %> </h3>
+			<% if @team.teleop_score %>
+				<h3> Tele score: <%= (@team.teleop_score / @team.matches_played).round(1) %> </h3>
 			<% end %>
 		</div>
 		<div class="col-md-2">
